@@ -2,7 +2,7 @@ NAME=mandriva-theme
 PACKAGE=mandriva-theme
 VERSION=1.2.12
 
-THEMES=Mandriva Mandriva-One Mandriva-Powerpack Mandriva-Powerpack+ Mandriva-Discovery Mandriva-Flash
+THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Powerpack+ Mandriva-Discovery Mandriva-Flash
 
 FILES=$(THEMES) Makefile common gimp
 sharedir=/usr/share
