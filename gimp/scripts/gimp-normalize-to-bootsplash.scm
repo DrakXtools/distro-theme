@@ -35,6 +35,7 @@
          )
 	
 	(gimp-image-flatten image)
+	(gimp-image-convert-rgb image)
 
      	(let* ((drawable (car (gimp-image-get-active-drawable image))))
 
