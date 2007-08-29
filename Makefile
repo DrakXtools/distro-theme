@@ -45,8 +45,6 @@ install:
 	    done; \
 	  done; \
 	  chmod 644 $(prefix)$(configdir)/bootsplash/themes/$$t/config/*.cfg; \
-	  install -d $(prefix)$(sharedir)/bootsplash/themes/$$t/grub;  \
-	  install -m644 $$t/grub/* $(prefix)$(sharedir)/bootsplash/themes/$$t/grub/; \
 	  install -d $(prefix)$(sharedir)/gfxboot/themes/$$t;  \
 	  install -m644 $$t/gfxboot/*.jpg $(prefix)$(sharedir)/gfxboot/themes/$$t/; \
         done
