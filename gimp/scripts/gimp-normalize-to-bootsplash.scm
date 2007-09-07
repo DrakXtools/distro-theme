@@ -35,9 +35,10 @@
          )
 	
 	(gimp-image-flatten image)
-	(gimp-image-convert-rgb image)
 
      	(let* ((drawable (car (gimp-image-get-active-drawable image))))
+		(if (= (car (gimp-drawable-is-rgb drawable)) FALSE)
+		    (gimp-image-convert-rgb image))
 
 		(file-jpeg-save 1 image drawable outfile outfile quality 0 0 0 "Mandriva Theme" 0 1 0 0 )
 		(gimp-image-delete image)
