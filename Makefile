@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.2.17
+VERSION=1.2.18
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
