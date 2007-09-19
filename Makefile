@@ -23,7 +23,7 @@ install:
 	mkdir -p $(prefix)$(sharedir)/config/
 	mkdir -p $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
 	install -m 644 common/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
-	install -m 644 common/screensaver/*.{jpg,png} $(prefix)$(sharedir)/mdk/screensaver
+	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
 	@for t in $(THEMES); do \
           set -x; set -e; \
 	  install -d $(prefix)$(sharedir)/bootsplash/themes/$$t/images;  \
