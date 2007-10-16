@@ -13,7 +13,7 @@ prefix=background/$theme
 [ "$mode" = "bootsplash" ] && prefix=bootsplash/data/bootsplash
 
 for f in "$@"; do
-    r=`identify -format '%wx%h' $f`
+    r=`identify -format '%wx%h' "$f"`
     d=$theme/$prefix-$r.png
-    cp -af $f $d
+    cp -af "$f" "$d"
 done
