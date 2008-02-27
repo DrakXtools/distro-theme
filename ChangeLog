@@ -1,3 +1,581 @@
+2008-02-27 19:48  Frederic Crozat <fcrozat at mandriva.com>
+
+	* Makefile: migrate changelog generation to svn
+
+2008-02-27 19:46  Frederic Crozat <fcrozat at mandriva.com>
+
+	* Makefile, Mandriva-Flash/background/Mandriva-Flash.xml,
+	  Mandriva-Flash/bootsplash/colors,
+	  Mandriva-Free/background/Mandriva-Free-1024x768-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1024x768-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1024x768-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1024x768-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1024x768.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440-0000.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440-0700.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440-1300.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440-1800.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440.png,
+	  Mandriva-Free/background/Mandriva-Free.xml,
+	  Mandriva-Free/bootsplash/colors,
+	  Mandriva-Free/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Free/gfxboot/back.png,
+	  Mandriva-Free/gfxboot/welcome.png, Mandriva-Free/lilo,
+	  Mandriva-One/background/Mandriva-One-1024x768-0000.png,
+	  Mandriva-One/background/Mandriva-One-1024x768-0700.png,
+	  Mandriva-One/background/Mandriva-One-1024x768-1300.png,
+	  Mandriva-One/background/Mandriva-One-1024x768-1800.png,
+	  Mandriva-One/background/Mandriva-One-1024x768.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024-0000.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024-0700.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024-1300.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024-1800.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024.png,
+	  Mandriva-One/background/Mandriva-One-1280x800-0000.png,
+	  Mandriva-One/background/Mandriva-One-1280x800-0700.png,
+	  Mandriva-One/background/Mandriva-One-1280x800-1300.png,
+	  Mandriva-One/background/Mandriva-One-1280x800-1800.png,
+	  Mandriva-One/background/Mandriva-One-1280x800.png,
+	  Mandriva-One/background/Mandriva-One-1440x900-0000.png,
+	  Mandriva-One/background/Mandriva-One-1440x900-0700.png,
+	  Mandriva-One/background/Mandriva-One-1440x900-1300.png,
+	  Mandriva-One/background/Mandriva-One-1440x900-1800.png,
+	  Mandriva-One/background/Mandriva-One-1440x900.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200-0000.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200-0700.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200-1300.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200-1800.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050-0000.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050-0700.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050-1300.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050-1800.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200-0000.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200-0700.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200-1300.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200-1800.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200.png,
+	  Mandriva-One/background/Mandriva-One-1920x1440-0000.png,
+	  Mandriva-One/background/Mandriva-One-1920x1440-0700.png,
+	  Mandriva-One/background/Mandriva-One-1920x1440-1300.png,
+	  Mandriva-One/background/Mandriva-One-1920x1440-1800.png,
+	  Mandriva-One/background/Mandriva-One-1920x1440.png,
+	  Mandriva-One/background/Mandriva-One.xml,
+	  Mandriva-One/bootsplash/colors,
+	  Mandriva-One/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-One/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-One/gfxboot/back.png, Mandriva-One/gfxboot/welcome.png,
+	  Mandriva-One/lilo,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440-0000.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440-0700.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440-1300.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440-1800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack.xml,
+	  Mandriva-Powerpack/bootsplash/colors,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Powerpack/gfxboot/back.png,
+	  Mandriva-Powerpack/gfxboot/welcome.png, Mandriva-Powerpack/lilo,
+	  common/bootsplash/config/bootsplash-1024x768.cfg,
+	  common/bootsplash/config/bootsplash-1280x1024.cfg,
+	  common/bootsplash/config/bootsplash-1600x1200.cfg,
+	  common/bootsplash/config/bootsplash-800x600.cfg,
+	  common/bootsplash/config/bootsplash-template.cfg,
+	  common/bootsplash/config/hibernate-1024x768.cfg,
+	  common/bootsplash/config/hibernate-1280x1024.cfg,
+	  common/bootsplash/config/hibernate-1600x1200.cfg,
+	  common/bootsplash/config/hibernate-800x600.cfg,
+	  common/bootsplash/config/hibernate-template.cfg,
+	  common/bootsplash/config/vt0-1024x768.cfg,
+	  common/bootsplash/config/vt0-1280x1024.cfg,
+	  common/bootsplash/config/vt0-1600x1200.cfg,
+	  common/bootsplash/config/vt0-800x600.cfg,
+	  common/bootsplash/config/vt0-template.cfg,
+	  common/screensaver/0-Anokalven.png,
+	  common/screensaver/1-Moln.png, common/screensaver/2-Norrsken.png,
+	  common/screensaver/3-Gapas.png,
+	  common/screensaver/4-Jiegnaffo.png, common/screensaver/5-Sol.png,
+	  common/screensaver/6-Goahti.png, common/screensaver/flower-0.png,
+	  common/screensaver/flower-1.png, common/screensaver/flower-2.png,
+	  common/screensaver/flower-3.png, common/screensaver/flower-4.png,
+	  common/screensaver/flower-5.png, common/screensaver/flower-6.png,
+	  common/screensaver/flower-7.png, common/screensaver/flower-8.png,
+	  common/screensaver/flower-9.png: - Release 1.2.22
+	  - New artwork for Mandriva 2008 Spring, featuring hour-based
+	  backgrounds
+	  - use templates to create bootsplash configuration
+
+2008-02-27 10:05  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.21
+
+2008-02-01 18:47  Frederic Crozat <fcrozat at mandriva.com>
+
+	* Makefile: - Replace broken glob usage in gimp with on the fly
+	  generated gimp command
+
+2007-10-17 12:10  Olivier Blin <oblin at mandriva.com>
+
+	* Mandriva-Flash/background/Mandriva-Flash-1024x768.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1280x1024.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1280x600.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1280x800.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1440x900.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1600x1200.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1680x1050.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1920x1200.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1920x1440.png,
+	  Mandriva-Flash/background/Mandriva-Flash-800x600.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Flash/gfxboot, Mandriva-Flash/gfxboot/back.png,
+	  Mandriva-Flash/gfxboot/welcome.png: update Flash theme
+
+2007-10-16 14:18  Olivier Blin <oblin at mandriva.com>
+
+	* import-images.sh: handle spaces in filenames
+
+2007-10-16 10:21  Olivier Blin <oblin at mandriva.com>
+
+	* import-images.sh: add script to import theme images
+
+2007-10-16 09:41  Olivier Blin <oblin at mandriva.com>
+
+	* Mandriva-Flash/gfxboot: remove gfxboot symlink
+
+2007-09-21 16:54  Pixel <pixel at mandriva.com>
+
+	* Makefile: 1.2.20: change gfxboot images with Mandriva logo at the
+	  same place as Free gfxboot image
+
+2007-09-21 16:51  Pixel <pixel at mandriva.com>
+
+	* Mandriva-One/gfxboot/back.png,
+	  Mandriva-Powerpack/gfxboot/back.png: change gfxboot images with
+	  Mandriva logo at the same place as Free gfxboot image
+
+2007-09-19 21:52  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: screensavers are png only
+
+2007-09-19 21:46  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.19
+
+2007-09-19 21:44  Olivier Blin <oblin at mandriva.com>
+
+	* common/screensaver/0-Anokalven.png,
+	  common/screensaver/1-Moln.png, common/screensaver/2-Norrsken.png,
+	  common/screensaver/3-Gapas.png,
+	  common/screensaver/4-Jiegnaffo.png, common/screensaver/5-Sol.png,
+	  common/screensaver/6-Goahti.png,
+	  common/screensaver/IA-ORA-01.jpg,
+	  common/screensaver/IA-ORA-02.jpg,
+	  common/screensaver/IA-ORA-03.jpg,
+	  common/screensaver/IA-ORA-04.jpg,
+	  common/screensaver/IA-ORA-05.jpg,
+	  common/screensaver/IA-ORA-06.jpg,
+	  common/screensaver/IA-ORA-07.jpg,
+	  common/screensaver/IA-ORA-08.jpg,
+	  common/screensaver/IA-ORA-09.jpg,
+	  common/screensaver/IA-ORA-10.jpg,
+	  common/screensaver/IA-ORA-11.jpg,
+	  common/screensaver/IA-ORA-12.jpg,
+	  common/screensaver/IA-ORA-13.jpg,
+	  common/screensaver/SPRING-01.png,
+	  common/screensaver/SPRING-02.png,
+	  common/screensaver/SPRING-03.png,
+	  common/screensaver/SPRING-04.png,
+	  common/screensaver/SPRING-05.png,
+	  common/screensaver/SPRING-06.png,
+	  common/screensaver/SPRING-07.png,
+	  common/screensaver/SPRING-08.png,
+	  common/screensaver/SPRING-09.png,
+	  common/screensaver/SPRING-10.png: add new screensavers
+
+2007-09-11 13:04  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.18
+
+2007-09-11 13:04  Olivier Blin <oblin at mandriva.com>
+
+	* Mandriva-One/background/Mandriva-One-1920x1440.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440.png:
+	  update 1920x1440 images (#33355)
+
+2007-09-07 17:12  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.17
+
+2007-09-07 17:12  Olivier Blin <oblin at mandriva.com>
+
+	* gimp/scripts/gimp-normalize-to-bootsplash.scm: convert image to
+	  rgb only if layer is not already rgb (fix weird gimp crash)
+
+2007-09-06 10:01  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: use svn export for dist target
+
+2007-08-29 17:13  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.16
+
+2007-08-29 13:09  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: do not build Mandriva-Discovery and Mandriva-Powerpack+
+	  themes
+
+2007-08-29 11:54  Olivier Blin <oblin at mandriva.com>
+
+	* Mandriva-Discovery, Mandriva-Powerpack+: remove Discovery and
+	  Powerpack+ themes
+
+2007-08-29 11:23  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile, Mandriva-Discovery/grub, Mandriva-Flash/grub,
+	  Mandriva-Free/grub, Mandriva-One/grub, Mandriva-Powerpack+/grub,
+	  Mandriva-Powerpack/grub: remove obsolete grub files
+
+2007-08-29 11:19  Olivier Blin <oblin at mandriva.com>
+
+	* Mandriva-One/background/Mandriva-One-1024x768.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024.png,
+	  Mandriva-One/background/Mandriva-One-1280x800.png,
+	  Mandriva-One/background/Mandriva-One-1440x900.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-One/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-One/gfxboot/back.png, Mandriva-One/gfxboot/welcome.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Powerpack/gfxboot/back.png,
+	  Mandriva-Powerpack/gfxboot/welcome.png: update Mandriva-One and
+	  Mandriva-Powerpack themes for 2008.0
+
+2007-08-28 12:06  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.15
+
+2007-08-28 12:06  Olivier Blin <oblin at mandriva.com>
+
+	* gimp/scripts/gimp-normalize-to-bootsplash.scm: convert image to
+	  rgb before saving as jpeg (fix using indexed images as source)
+
+2007-08-27 15:11  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile, Mandriva-Free/background/Mandriva-Free-1024x768.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Free/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Free/gfxboot/back.png,
+	  Mandriva-Free/gfxboot/welcome.png,
+	  common/bootsplash/data/vt-1024x768.png,
+	  common/bootsplash/data/vt-1280x1024.png,
+	  common/bootsplash/data/vt-1600x1200.png,
+	  common/bootsplash/data/vt-800x600.png: 1.2.14 (update theme for
+	  Mandriva 2008.0)
+
+2007-06-29 12:38  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile: 1.2.13
+
+2007-06-29 12:38  Olivier Blin <oblin at mandriva.com>
+
+	* Mandriva-Free/background/Mandriva-1024x768.png,
+	  Mandriva-Free/background/Mandriva-1280x1024.png,
+	  Mandriva-Free/background/Mandriva-1280x800.png,
+	  Mandriva-Free/background/Mandriva-1440x900.png,
+	  Mandriva-Free/background/Mandriva-1600x1200.png,
+	  Mandriva-Free/background/Mandriva-1680x1050.png,
+	  Mandriva-Free/background/Mandriva-1920x1200.png,
+	  Mandriva-Free/background/Mandriva-1920x1440.png,
+	  Mandriva-Free/background/Mandriva-Free-1024x768.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x1024.png,
+	  Mandriva-Free/background/Mandriva-Free-1280x800.png,
+	  Mandriva-Free/background/Mandriva-Free-1440x900.png,
+	  Mandriva-Free/background/Mandriva-Free-1600x1200.png,
+	  Mandriva-Free/background/Mandriva-Free-1680x1050.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1200.png,
+	  Mandriva-Free/background/Mandriva-Free-1920x1440.png: rename
+	  Mandriva theme as Mandriva-Free (part 2)
+
+2007-06-29 12:37  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile, Mandriva, Mandriva-Flash/gfxboot, Mandriva-Free,
+	  Mandriva-Free/background: rename Mandriva theme as Mandriva-Free
+
+2007-05-10 15:15  Olivier Blin <oblin at mandriva.com>
+
+	* Makefile,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1280x800.png,
+	  Mandriva/background/Mandriva-1440x900.png: use final 2007 Spring
+	  images for Mandriva-1440x900 and Mandriva-Powerpack+-1280x800
+
+2007-05-10 14:54  Olivier Blin <oblin at mandriva.com>
+
+	* ., ChangeLog, Makefile, Mandriva, Mandriva-Discovery,
+	  Mandriva-Discovery/background,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1024x768.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1280x1024.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1280x600.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1280x800.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1440x900.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1600x1200.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1680x1050.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1920x1200.png,
+	  Mandriva-Discovery/background/Mandriva-Discovery-1920x1440.png,
+	  Mandriva-Discovery/bootsplash,
+	  Mandriva-Discovery/bootsplash/data,
+	  Mandriva-Discovery/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Discovery/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Discovery/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Discovery/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Discovery/gfxboot, Mandriva-Discovery/gfxboot/back.png,
+	  Mandriva-Discovery/gfxboot/welcome.png, Mandriva-Discovery/grub,
+	  Mandriva-Discovery/grub/splash.xpm.gz, Mandriva-Discovery/lilo,
+	  Mandriva-Discovery/lilo/lilo.png,
+	  Mandriva-Discovery/lilo/syslinux.png, Mandriva-Flash,
+	  Mandriva-Flash/background,
+	  Mandriva-Flash/background/Mandriva-Flash-1024x768.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1280x1024.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1280x600.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1600x1200.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1680x1050.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1920x1200.png,
+	  Mandriva-Flash/background/Mandriva-Flash-1920x1440.png,
+	  Mandriva-Flash/background/Mandriva-Flash-800x600.png,
+	  Mandriva-Flash/bootsplash, Mandriva-Flash/bootsplash/data,
+	  Mandriva-Flash/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Flash/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Flash/gfxboot, Mandriva-Flash/grub,
+	  Mandriva-Flash/grub/splash.xpm.gz, Mandriva-Flash/lilo,
+	  Mandriva-Flash/lilo/lilo.png, Mandriva-Flash/lilo/syslinux.png,
+	  Mandriva-One, Mandriva-One/background,
+	  Mandriva-One/background/Mandriva-One-1024x768.png,
+	  Mandriva-One/background/Mandriva-One-1280x1024.png,
+	  Mandriva-One/background/Mandriva-One-1280x800.png,
+	  Mandriva-One/background/Mandriva-One-1440x900.png,
+	  Mandriva-One/background/Mandriva-One-1600x1200.png,
+	  Mandriva-One/background/Mandriva-One-1680x1050.png,
+	  Mandriva-One/background/Mandriva-One-1920x1200.png,
+	  Mandriva-One/background/Mandriva-One-1920x1440.png,
+	  Mandriva-One/bootsplash, Mandriva-One/bootsplash/data,
+	  Mandriva-One/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-One/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-One/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-One/gfxboot, Mandriva-One/gfxboot/back.png,
+	  Mandriva-One/gfxboot/welcome.png, Mandriva-One/grub,
+	  Mandriva-One/grub/splash.xpm.gz, Mandriva-One/lilo,
+	  Mandriva-One/lilo/lilo.png, Mandriva-One/lilo/syslinux.png,
+	  Mandriva-Powerpack, Mandriva-Powerpack+,
+	  Mandriva-Powerpack+/background,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1024x768.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1280x1024.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1280x800.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1440x900.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1600x1200.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1680x1050.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1920x1200.png,
+	  Mandriva-Powerpack+/background/Mandriva-Powerpack+-1920x1440.png,
+	  Mandriva-Powerpack+/bootsplash,
+	  Mandriva-Powerpack+/bootsplash/data,
+	  Mandriva-Powerpack+/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Powerpack+/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Powerpack+/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Powerpack+/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Powerpack+/gfxboot,
+	  Mandriva-Powerpack+/gfxboot/back.png,
+	  Mandriva-Powerpack+/gfxboot/welcome.png,
+	  Mandriva-Powerpack+/grub, Mandriva-Powerpack+/grub/splash.xpm.gz,
+	  Mandriva-Powerpack+/lilo, Mandriva-Powerpack+/lilo/lilo.png,
+	  Mandriva-Powerpack+/lilo/syslinux.png,
+	  Mandriva-Powerpack/background,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1024x768.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x1024.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1280x800.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1440x900.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1600x1200.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1680x1050.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1200.png,
+	  Mandriva-Powerpack/background/Mandriva-Powerpack-1920x1440.png,
+	  Mandriva-Powerpack/bootsplash,
+	  Mandriva-Powerpack/bootsplash/data,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva-Powerpack/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva-Powerpack/gfxboot, Mandriva-Powerpack/gfxboot/back.png,
+	  Mandriva-Powerpack/gfxboot/welcome.png, Mandriva-Powerpack/grub,
+	  Mandriva-Powerpack/grub/splash.xpm.gz, Mandriva-Powerpack/lilo,
+	  Mandriva-Powerpack/lilo/lilo.png,
+	  Mandriva-Powerpack/lilo/syslinux.png, Mandriva/background,
+	  Mandriva/background/Mandriva-1024x768.png,
+	  Mandriva/background/Mandriva-1280x1024.png,
+	  Mandriva/background/Mandriva-1280x800.png,
+	  Mandriva/background/Mandriva-1440x900.png,
+	  Mandriva/background/Mandriva-1600x1200.png,
+	  Mandriva/background/Mandriva-1680x1050.png,
+	  Mandriva/background/Mandriva-1920x1200.png,
+	  Mandriva/background/Mandriva-1920x1440.png, Mandriva/bootsplash,
+	  Mandriva/bootsplash/data,
+	  Mandriva/bootsplash/data/bootsplash-1024x768.png,
+	  Mandriva/bootsplash/data/bootsplash-1280x1024.png,
+	  Mandriva/bootsplash/data/bootsplash-1600x1200.png,
+	  Mandriva/bootsplash/data/bootsplash-800x600.png,
+	  Mandriva/gfxboot, Mandriva/gfxboot/back.png,
+	  Mandriva/gfxboot/welcome.png, Mandriva/grub,
+	  Mandriva/grub/splash.xpm.gz, Mandriva/lilo,
+	  Mandriva/lilo/lilo.png, Mandriva/lilo/syslinux.png, common,
+	  common/bootsplash, common/bootsplash/config,
+	  common/bootsplash/config/animations.cfg,
+	  common/bootsplash/config/bootsplash-1024x768.cfg,
+	  common/bootsplash/config/bootsplash-1280x1024.cfg,
+	  common/bootsplash/config/bootsplash-1600x1200.cfg,
+	  common/bootsplash/config/bootsplash-800x600.cfg,
+	  common/bootsplash/config/global.config,
+	  common/bootsplash/config/gtkrc,
+	  common/bootsplash/config/hibernate-1024x768.cfg,
+	  common/bootsplash/config/hibernate-1280x1024.cfg,
+	  common/bootsplash/config/hibernate-1600x1200.cfg,
+	  common/bootsplash/config/hibernate-800x600.cfg,
+	  common/bootsplash/config/vt0-1024x768.cfg,
+	  common/bootsplash/config/vt0-1280x1024.cfg,
+	  common/bootsplash/config/vt0-1600x1200.cfg,
+	  common/bootsplash/config/vt0-800x600.cfg, common/bootsplash/data,
+	  common/bootsplash/data/hibernate-1024x768.png,
+	  common/bootsplash/data/hibernate-1280x1024.png,
+	  common/bootsplash/data/hibernate-1600x1200.png,
+	  common/bootsplash/data/hibernate-800x600.png,
+	  common/bootsplash/data/vt-1024x768.png,
+	  common/bootsplash/data/vt-1280x1024.png,
+	  common/bootsplash/data/vt-1600x1200.png,
+	  common/bootsplash/data/vt-800x600.png, common/screensaver,
+	  common/screensaver/IA-ORA-01.jpg,
+	  common/screensaver/IA-ORA-02.jpg,
+	  common/screensaver/IA-ORA-03.jpg,
+	  common/screensaver/IA-ORA-04.jpg,
+	  common/screensaver/IA-ORA-05.jpg,
+	  common/screensaver/IA-ORA-06.jpg,
+	  common/screensaver/IA-ORA-07.jpg,
+	  common/screensaver/IA-ORA-08.jpg,
+	  common/screensaver/IA-ORA-09.jpg,
+	  common/screensaver/IA-ORA-10.jpg,
+	  common/screensaver/IA-ORA-11.jpg,
+	  common/screensaver/IA-ORA-12.jpg,
+	  common/screensaver/IA-ORA-13.jpg,
+	  common/screensaver/SPRING-01.png,
+	  common/screensaver/SPRING-02.png,
+	  common/screensaver/SPRING-03.png,
+	  common/screensaver/SPRING-04.png,
+	  common/screensaver/SPRING-05.png,
+	  common/screensaver/SPRING-06.png,
+	  common/screensaver/SPRING-07.png,
+	  common/screensaver/SPRING-08.png,
+	  common/screensaver/SPRING-09.png,
+	  common/screensaver/SPRING-10.png, gimp, gimp/gimprc,
+	  gimp/scripts, gimp/scripts/gimp-normalize-to-bootsplash.scm:
+	  re-import mandriva-theme after SVN loss
+
 2006-09-12 20:30  Warly <warly at mandriva.com>
 
 	* Mandriva-One/: background/Mandriva-One-1024x768.png,
