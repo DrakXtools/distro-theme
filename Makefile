@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.2.21
+VERSION=1.2.22
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -36,23 +36,36 @@ install:
 	  install -m644 $$t/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/; \
 	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/config;  \
 	  install -m644 common/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
-	  perl -pi -e "s,/\@THEME\@/,/$$t/,"  $(prefix)$(configdir)/bootsplash/themes/$$t/config/*.cfg; \
 	  if [ -d $$t/bootsplash/config ]; then \
 	    install -m644 $$t/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
 	  fi; \
 	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/animations;  \
 	  install -m644 $$t/background/$$t-*.png $(prefix)$(sharedir)/mdk/backgrounds/; \
+	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
+	  for d in 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 ; \
+	  do \
+	    ln -f -s $$t-$$d-1300.png $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.png; \
+	  done; \
+	  source $$t/bootsplash/colors; \
 	  for d in 800x600 1024x768 1280x1024 1600x1200; \
 	  do \
-	    ln -s bootsplash-$$d.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/silent-$$d.jpg; \
+	    W=`echo $$d | sed -e "s/x.*//"` ;\
+	    H=`echo $$d | sed -e "s/.*x//"` ;\
+	    ln -f -s bootsplash-$$d.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/silent-$$d.jpg; \
+	    for v in common/bootsplash/config/*-template.cfg ; do \
+		cp -f $$v $(prefix)$(configdir)/bootsplash/themes/$$t/config/`basename $$v -template.cfg`-$$d.cfg ;\
+            done; \
+	    perl -pi -e "s,/\@THEME\@/,/$$t/,; s,\@B1\@,$$B1,g; s,\@B2\@,$$B2,g; s,\@B3\@,$$B3,g;s,\@B4\@,$$B4,g; s/\@HEIGHT\@(-\d+)?/$$H+\$$1/eg; s/\@WIDTH\@(-\d+)?/$$W+\$$1/eg"  $(prefix)$(configdir)/bootsplash/themes/$$t/config/*-$$d.cfg; \
 	    for v in 1 2 3 4 5 6; \
 	    do \
-	      ln -s vt0-$$d.cfg $(prefix)$(configdir)/bootsplash/themes/$$t/config/vt$$v-$$d.cfg; \
+	      ln -f -s vt0-$$d.cfg $(prefix)$(configdir)/bootsplash/themes/$$t/config/vt$$v-$$d.cfg; \
 	    done; \
 	  done; \
+	  rm -f $(prefix)$(configdir)/bootsplash/themes/$$t/config/*template.cfg ; \
 	  chmod 644 $(prefix)$(configdir)/bootsplash/themes/$$t/config/*.cfg; \
 	  install -d $(prefix)$(sharedir)/gfxboot/themes/$$t;  \
 	  install -m644 $$t/gfxboot/*.jpg $(prefix)$(sharedir)/gfxboot/themes/$$t/; \
+	  install -m644 /usr/share/fonts/TTF/dejavu/DejaVuSans.ttf $(prefix)$(configdir)/bootsplash/luxisri.ttf; \
         done
 
 changelog: ../common/username
