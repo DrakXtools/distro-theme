@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.2.22
+VERSION=1.2.23
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -12,19 +12,26 @@ SVNSOFT=svn+ssh://svn.mandriva.com/svn/soft/theme/mandriva-theme/
 SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 
 all:
+
+install:
+	@mkdir -p $(prefix)$(sharedir)/mdk/backgrounds/
 	@/bin/cp -f gimp/scripts/gimp-normalize-to-bootsplash.scm tmp-gimp-command
+	@cat gimp/scripts/gimp-convert-to-jpeg.scm >> tmp-gimp-command
 	@for i in */bootsplash/data/*.png */gfxboot/*.png ; do \
 	    echo \(gimp-normalize-to-bootsplash 1.0 \"$$i\" \"`dirname $$i`/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
 	done
+	@for i in */background/*.png ; do \
+            echo \(gimp-convert-to-jpeg 0.98 \"$$i\" \"$(prefix)$(sharedir)/mdk/backgrounds/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
+	done
 	@echo \(gimp-quit 1\) >> tmp-gimp-command
+	@echo running gimp to convert images
 	@cat tmp-gimp-command | gimp  --console-messages -i  -d  -b -
 	@rm -f tmp-gimp-command
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp  --console-messages -i -d  -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "bootsplash/data/*.png") (gimp-quit 1))'
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp --console-messages -i -d -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "gfxboot/*.png") (gimp-quit 1))'
-install:
+
 	mkdir -p $(prefix)$(sharedir)/bootsplash/themes/
 	mkdir -p $(prefix)$(configdir)/bootsplash/themes/
-	mkdir -p $(prefix)$(sharedir)/mdk/backgrounds/root
 	mkdir -p $(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(prefix)$(sharedir)/config/
 	mkdir -p $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
@@ -40,11 +47,10 @@ install:
 	    install -m644 $$t/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
 	  fi; \
 	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/animations;  \
-	  install -m644 $$t/background/$$t-*.png $(prefix)$(sharedir)/mdk/backgrounds/; \
 	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
 	  for d in 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 ; \
 	  do \
-	    ln -f -s $$t-$$d-1300.png $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.png; \
+	    ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
 	  done; \
 	  source $$t/bootsplash/colors; \
 	  for d in 800x600 1024x768 1280x1024 1600x1200; \
