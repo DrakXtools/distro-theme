@@ -19,7 +19,7 @@
 <transition type="overlay">
 <duration>18000.0</duration>
 <from>/usr/share/mdk/backgrounds/Mandriva-Free-0700.jpg</from>
-<to>/usr/share/mdk/backgrounds/Mandriva-PowerPack-1300.jpg</to>
+<to>/usr/share/mdk/backgrounds/Mandriva-Free-1300.jpg</to>
 </transition>
 
 <!-- It's 1 PM, we're showing the day image in full force now, for 2 hours ending at 3 PM. -->
