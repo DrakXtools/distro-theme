@@ -55,7 +55,7 @@ install:
 	  source $$t/bootsplash/colors; \
 	  for d in 640x480 800x600 1024x768 1280x1024 1600x1200; \
 	  do \
-	    [ -e $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg ] || continue \
+	    [ -e $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg ] || continue; \
 	    W=`echo $$d | sed -e "s/x.*//"` ;\
 	    H=`echo $$d | sed -e "s/.*x//"` ;\
 	    ln -f -s bootsplash-$$d.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/silent-$$d.jpg; \
