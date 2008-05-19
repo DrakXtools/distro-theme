@@ -53,7 +53,7 @@ install:
 	    [ -e $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d-1300.jpg ] && ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
 	  done; \
 	  source $$t/bootsplash/colors; \
-	  for d in 800x600 1024x768 1280x1024 1600x1200; \
+	  for d in 640x480 800x600 1024x768 1280x1024 1600x1200; \
 	  do \
 	    W=`echo $$d | sed -e "s/x.*//"` ;\
 	    H=`echo $$d | sed -e "s/.*x//"` ;\
