@@ -48,7 +48,7 @@ install:
 	  fi; \
 	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/animations;  \
 	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
-	  for d in 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 ; \
+	  for d in 800x480 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 ; \
 	  do \
 	    [ -e $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d-1300.jpg ] && ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
 	  done; \
