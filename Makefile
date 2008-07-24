@@ -67,6 +67,13 @@ install:
 	    do \
 	      ln -f -s vt0-$$d.cfg $(prefix)$(configdir)/bootsplash/themes/$$t/config/vt$$v-$$d.cfg; \
 	    done; \
+	    install -d $(prefix)/$(sharedir)/splashy/themes/$$t-$$d; \
+	    cp -al $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/background.jpg; \
+	    if [ -e $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg ]; then \
+	      cp -al $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/suspend.jpg; \
+	    fi; \
+	    ln -sf ../default/FreeSans.ttf $(prefix)/$(sharedir)/splashy/themes/$$t-$$d; \
+	    perl -pe "s,\@THEME\@,$$t,g" common/bootsplash/theme.xml > $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/theme.xml; \
 	  done; \
 	  rm -f $(prefix)$(configdir)/bootsplash/themes/$$t/config/*template.cfg ; \
 	  chmod 644 $(prefix)$(configdir)/bootsplash/themes/$$t/config/*.cfg; \
