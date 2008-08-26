@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.3.0
+VERSION=1.3.1
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -33,10 +33,12 @@ install:
 	mkdir -p $(prefix)$(sharedir)/bootsplash/themes/
 	mkdir -p $(prefix)$(configdir)/bootsplash/themes/
 	mkdir -p $(prefix)/$(sharedir)/mdk/screensaver
+	mkdir -p $(prefix)/$(sharedir)/mdk/backgrounds
 	mkdir -p $(prefix)$(sharedir)/config/
 	mkdir -p $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
 	install -m 644 common/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
 	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
+	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
 	@for t in $(THEMES); do \
           set -x; set -e; \
 	  install -d $(prefix)$(sharedir)/bootsplash/themes/$$t/images;  \
@@ -48,7 +50,7 @@ install:
 	  fi; \
 	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/animations;  \
 	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
-	  for d in 800x480 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 ; \
+	  for d in 800x480 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 1024x600 800x600 ; \
 	  do \
 	    [ -e $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d-1300.jpg ] && ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
 	  done; \
