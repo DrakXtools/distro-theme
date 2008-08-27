@@ -10,39 +10,39 @@
     </info>
     <progressbar>
         <dimension>
-            <x>3</x>
-            <y>90</y>
+            <x>5</x>
+            <y>92</y>
             <width>45</width>
-            <height>3</height>
+            <height>2</height>
         </dimension>
         <color>
-            <red>66</red>
-            <green>125</green>
+            <red>90</red>
+            <green>138</green>
             <blue>198</blue>
-            <alpha>255</alpha>
+            <alpha>214</alpha>
         </color>
         <border>
             <enable>yes</enable>
             <color>
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
+                <red>199</red>
+                <green>211</green>
+                <blue>223</blue>
                 <alpha>255</alpha>
             </color>
         </border>
         <background>
             <color>
-                <red>239</red>
-                <green>243</green>
-                <blue>247</blue>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
                 <alpha>255</alpha>
             </color>
         </background>
         <direction>
             <boot>forward</boot>
-            <shutdown>backward</shutdown>
+            <shutdown>forward</shutdown>
             <resume>forward</resume>
-            <suspend>backward</suspend>
+            <suspend>forward</suspend>
         </direction>
         <visibility>
             <boot>yes</boot>
