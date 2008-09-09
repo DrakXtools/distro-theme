@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.3.4
+VERSION=1.3.5
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -45,6 +45,9 @@ install:
 	  install -m644 $$t/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/; \
 	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/config;  \
 	  install -m644 common/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
+	  if [ ! -f $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-640x480.jpg ]; then \
+	    ln -s -f bootsplash-800x600.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-640x480.jpg ; \
+	  fi; \
 	  if [ -d $$t/bootsplash/config ]; then \
 	    install -m644 $$t/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
 	  fi; \
