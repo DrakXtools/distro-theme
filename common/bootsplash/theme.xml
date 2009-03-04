@@ -9,25 +9,26 @@
         <author>Mandriva</author>
     </info>
     <progressbar>
+         <!-- x coordinate, y coordinate, width and height are for the progress bar.  Remember that x, y, width and height are expressed in percentage -->
         <dimension>
-            <x>5</x>
-            <y>92</y>
+            <x>45</x>
+            <y>84</y>
             <width>45</width>
-            <height>2</height>
+            <height>3</height>
         </dimension>
-        <color>
-            <red>90</red>
-            <green>138</green>
-            <blue>198</blue>
-            <alpha>214</alpha>
+	<color> <!-- #a3b8d9 -->
+            <red>163</red>
+            <green>184</green>
+            <blue>217</blue>
+            <alpha>255</alpha>
         </color>
         <border>
             <enable>yes</enable>
-            <color>
-                <red>199</red>
-                <green>211</green>
-                <blue>223</blue>
-                <alpha>255</alpha>
+	    <color> <!-- 1c3267 -->
+              <red>28</red>
+              <green>50</green>
+              <blue>103</blue>
+              <alpha>214</alpha>
             </color>
         </border>
         <background>
@@ -57,6 +58,7 @@
         <resume>suspend.jpg</resume>
         <suspend>suspend.jpg</suspend>
         <errorimg>background.jpg</errorimg>
+         <!-- x coordinate, y coordinate, width and height are for the progress bar.  Remember that x, y, width and height are expressed in percentage -->
         <dimension>
             <x>0</x>
             <y>0</y>
@@ -66,6 +68,7 @@
     </background>
     <textbox>
         <enable>yes</enable>
+         <!-- x coordinate, y coordinate, width and height are for the progress bar.  Remember that x, y, width and height are expressed in percentage -->
         <dimension>
             <x>20</x>
             <y>50</y>

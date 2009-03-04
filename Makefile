@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.3.6
+VERSION=1.3.7
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -61,7 +61,7 @@ install:
 	  	ln -f -s $$t-1920x1200-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1440x900-$$h.jpg ; \
 	  	ln -f -s $$t-1920x1200-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1680x1050-$$h.jpg ; \
 	  done ; \
-	  for d in 800x480 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1200 1920x1440 1024x600 800x600 ; \
+	  for d in 800x480 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1080 1920x1200 1920x1440 1024x600 800x600 ; \
 	  do \
 	    [ -e $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d-1300.jpg ] && ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
 	  done; \
