@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.3.8
+VERSION=1.3.9
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -76,18 +76,22 @@ install:
 	    for v in common/bootsplash/config/*-template.cfg ; do \
 		cp -f $$v $(prefix)$(configdir)/bootsplash/themes/$$t/config/`basename $$v -template.cfg`-$$d.cfg ;\
             done; \
-	    perl -pi -e "s,/\@THEME\@/,/$$t/,; s,\@B1\@,$$B1,g; s,\@B2\@,$$B2,g; s,\@B3\@,$$B3,g;s,\@B4\@,$$B4,g; s/\@HEIGHT\@(-\d+)?/$$H+\$$1/eg; s/\@WIDTH\@(-\d+)?/$$W+\$$1/eg"  $(prefix)$(configdir)/bootsplash/themes/$$t/config/*-$$d.cfg; \
+	    perl -pi -e "s,/\@THEME\@/,/$$t/,; s,\@B1\@,$$B1,g; s,\@B2\@,$$B2,g; s,\@B3\@,$$B3,g;s,\@B4\@,$$B4,g; s/\@HEIGHT\@\*([\d\.]+)/$$H*\$$1/eg ; s/\@WIDTH\@\*([\d\.]+)/$$W*\$$1/eg ; s/\@WIDTH\@(-\d+)?/$$W+\$$1/eg ; s/\@HEIGHT\@(-\d+)?/$$H+\$$1/eg; "  $(prefix)$(configdir)/bootsplash/themes/$$t/config/*-$$d.cfg; \
 	    for v in 1 2 3 4 5 6; \
 	    do \
 	      ln -f -s vt0-$$d.cfg $(prefix)$(configdir)/bootsplash/themes/$$t/config/vt$$v-$$d.cfg; \
 	    done; \
 	    install -d $(prefix)/$(sharedir)/splashy/themes/$$t-$$d; \
-	    cp -al $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/background.jpg; \
+	    cp -fal $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/background.jpg; \
 	    if [ -e $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg ]; then \
-	      cp -al $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/suspend.jpg; \
+	      cp -fal $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/suspend.jpg; \
 	    fi; \
 	    ln -sf ../default/FreeSans.ttf $(prefix)/$(sharedir)/splashy/themes/$$t-$$d; \
-	    perl -pe "s,\@THEME\@,$$t,g" common/bootsplash/theme.xml > $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/theme.xml; \
+	    if [ -e $$t/bootsplash/theme.xml ]; then \
+	      perl -pe "s,\@THEME\@,$$t,g" $$t/bootsplash/theme.xml > $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/theme.xml; \
+	    else \
+	      perl -pe "s,\@THEME\@,$$t,g" common/bootsplash/theme.xml > $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/theme.xml; \
+	    fi;\
 	  done; \
 	  rm -f $(prefix)$(configdir)/bootsplash/themes/$$t/config/*template.cfg ; \
 	  chmod 644 $(prefix)$(configdir)/bootsplash/themes/$$t/config/*.cfg; \
