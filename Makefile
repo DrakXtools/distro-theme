@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.3.9
+VERSION=1.3.10
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -38,7 +38,7 @@ install:
 	mkdir -p $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
 	install -m 644 common/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
 	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
-	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
+#	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
 	@for t in $(THEMES); do \
           set -x; set -e; \
 	  install -d $(prefix)$(sharedir)/bootsplash/themes/$$t/images;  \
