@@ -4,5 +4,5 @@ Description=Mandriva Flash theme
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/mandriva-flash
-ScriptFile=/usr/share/plymouth/themes/mandriva-flash/mdv.script
+ImageDir=/usr/share/plymouth/themes/Mandriva-Flash
+ScriptFile=/usr/share/plymouth/themes/Mandriva-Flash/mdv.script

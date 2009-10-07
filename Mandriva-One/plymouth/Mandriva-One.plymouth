@@ -4,5 +4,5 @@ Description=Mandriva One theme
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/mandriva-one
-ScriptFile=/usr/share/plymouth/themes/mandriva-one/mdv.script
+ImageDir=/usr/share/plymouth/themes/Mandriva-One
+ScriptFile=/usr/share/plymouth/themes/Mandriva-One/mdv.script

@@ -4,5 +4,5 @@ Description=Mandriva Free theme
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/mandriva-free
-ScriptFile=/usr/share/plymouth/themes/mandriva-free/mdv.script
+ImageDir=/usr/share/plymouth/themes/Mandriva-Free
+ScriptFile=/usr/share/plymouth/themes/Mandriva-Free/mdv.script
