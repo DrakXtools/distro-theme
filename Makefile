@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.3.12
+VERSION=1.4.0
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -17,7 +17,7 @@ install:
 	@mkdir -p $(prefix)$(sharedir)/mdk/backgrounds/
 	@/bin/cp -f gimp/scripts/gimp-normalize-to-bootsplash.scm tmp-gimp-command
 	@cat gimp/scripts/gimp-convert-to-jpeg.scm >> tmp-gimp-command
-	@for i in */bootsplash/data/*.png */gfxboot/*.png ; do \
+	@for i in */gfxboot/*.png ; do \
 	    echo \(gimp-normalize-to-bootsplash 1.0 \"$$i\" \"`dirname $$i`/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
 	done
 	@for i in */background/*.png ; do \
@@ -30,28 +30,17 @@ install:
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp  --console-messages -i -d  -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "bootsplash/data/*.png") (gimp-quit 1))'
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp --console-messages -i -d -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "gfxboot/*.png") (gimp-quit 1))'
 
-	mkdir -p $(prefix)$(sharedir)/bootsplash/themes/
-	mkdir -p $(prefix)$(configdir)/bootsplash/themes/
 	mkdir -p $(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(prefix)/$(sharedir)/mdk/backgrounds
-	mkdir -p $(prefix)$(sharedir)/config/
-	mkdir -p $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
-	install -m 644 common/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/Mandriva-common/images
 	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
 #	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
 	@for t in $(THEMES); do \
           set -x; set -e; \
-	  install -d $(prefix)$(sharedir)/bootsplash/themes/$$t/images;  \
-	  install -m644 $$t/bootsplash/data/*.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/; \
-	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/config;  \
-	  install -m644 common/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
-	  if [ ! -f $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-640x480.jpg ]; then \
-	    ln -f $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-800x600.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-640x480.jpg ; \
-	  fi; \
-	  if [ -d $$t/bootsplash/config ]; then \
-	    install -m644 $$t/bootsplash/config/* $(prefix)$(configdir)/bootsplash/themes/$$t/config/; \
-	  fi; \
-	  install -d $(prefix)/$(configdir)/bootsplash/themes/$$t/animations;  \
+	  install -d $(prefix)/$(sharedir)/plymouth/themes/$$t; \
+	  install -m644 common/plymouth/*.script $(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -m644 common/plymouth/*.png $(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -m644 $$t/plymouth/*.plymouth $(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -m644 $$t/gfxboot/welcome.png $(prefix)/$(sharedir)/plymouth/themes/$$t/welcome.png; \
 	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
 	  for h in 0000 0700 1300 1800 ; \
 	  do \
@@ -66,38 +55,8 @@ install:
 	  do \
 	    [ -e $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d-1300.jpg ] && ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
 	  done; \
-	  source $$t/bootsplash/colors; \
-	  for d in 640x480 800x600 1024x768 1280x1024 1600x1200; \
-	  do \
-	    [ -e $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg ] || continue; \
-	    W=`echo $$d | sed -e "s/x.*//"` ;\
-	    H=`echo $$d | sed -e "s/.*x//"` ;\
-	    ln -f -s bootsplash-$$d.jpg $(prefix)$(sharedir)/bootsplash/themes/$$t/images/silent-$$d.jpg; \
-	    for v in common/bootsplash/config/*-template.cfg ; do \
-		cp -f $$v $(prefix)$(configdir)/bootsplash/themes/$$t/config/`basename $$v -template.cfg`-$$d.cfg ;\
-            done; \
-	    perl -pi -e "s,/\@THEME\@/,/$$t/,; s,\@B1\@,$$B1,g; s,\@B2\@,$$B2,g; s,\@B3\@,$$B3,g;s,\@B4\@,$$B4,g; s/\@HEIGHT\@\*([\d\.]+)/$$H*\$$1/eg ; s/\@WIDTH\@\*([\d\.]+)/$$W*\$$1/eg ; s/\@WIDTH\@(-\d+)?/$$W+\$$1/eg ; s/\@HEIGHT\@(-\d+)?/$$H+\$$1/eg; "  $(prefix)$(configdir)/bootsplash/themes/$$t/config/*-$$d.cfg; \
-	    for v in 1 2 3 4 5 6; \
-	    do \
-	      ln -f -s vt0-$$d.cfg $(prefix)$(configdir)/bootsplash/themes/$$t/config/vt$$v-$$d.cfg; \
-	    done; \
-	    install -d $(prefix)/$(sharedir)/splashy/themes/$$t-$$d; \
-	    cp -fal $(prefix)$(sharedir)/bootsplash/themes/$$t/images/bootsplash-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/background.jpg; \
-	    if [ -e $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg ]; then \
-	      cp -fal $(prefix)$(sharedir)/bootsplash/Mandriva-common/images/hibernate-$$d.jpg $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/suspend.jpg; \
-	    fi; \
-	    ln -sf ../default/FreeSans.ttf $(prefix)/$(sharedir)/splashy/themes/$$t-$$d; \
-	    if [ -e $$t/bootsplash/theme.xml ]; then \
-	      perl -pe "s,\@THEME\@,$$t,g" $$t/bootsplash/theme.xml > $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/theme.xml; \
-	    else \
-	      perl -pe "s,\@THEME\@,$$t,g" common/bootsplash/theme.xml > $(prefix)/$(sharedir)/splashy/themes/$$t-$$d/theme.xml; \
-	    fi;\
-	  done; \
-	  rm -f $(prefix)$(configdir)/bootsplash/themes/$$t/config/*template.cfg ; \
-	  chmod 644 $(prefix)$(configdir)/bootsplash/themes/$$t/config/*.cfg; \
 	  install -d $(prefix)$(sharedir)/gfxboot/themes/$$t;  \
 	  install -m644 $$t/gfxboot/*.jpg $(prefix)$(sharedir)/gfxboot/themes/$$t/; \
-	  install -m644 /usr/share/fonts/TTF/dejavu/DejaVuSans.ttf $(prefix)$(configdir)/bootsplash/luxisri.ttf; \
         done
 
 changelog:
