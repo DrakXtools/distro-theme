@@ -153,6 +153,8 @@ SpriteSetImage(sprite_prompt, prompt);
 SpriteSetPosition(sprite_prompt,  (SpriteWindowGetWidth() - ImageGetWidth(prompt)) / 2, SpriteWindowGetHeight() * 0.89, 2);
   }
 
+/* instantiate dialog at startup, to ensure all icons are loaded in memory before initrd is unmounted, in case /usr isn't mounted yet */
+dialog_setup(); dialog_opacity(0);
 PlymouthSetDisplayNormalFunction(display_normal_callback);
 PlymouthSetDisplayPasswordFunction(display_password_callback);
 PlymouthSetMessageFunction(display_message_callback);
