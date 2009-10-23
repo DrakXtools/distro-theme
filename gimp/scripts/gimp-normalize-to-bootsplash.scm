@@ -31,7 +31,7 @@
 	    (set! i (+ i 1)))))
 
 (define (gimp-normalize-to-bootsplash quality infile outfile)
-   (let* ((image (car (file-png-load 1 infile infile)))
+   (let* ((image (car (gimp-file-load 1 infile infile)))
          )
 	
 	(gimp-image-flatten image)
@@ -49,8 +49,8 @@
 
 (script-fu-register                                 ; I always forget these ...
    "gimp-normalize-to-bootsplash"                                    ; script name to register
-   "<Toolbox>/Xtns/Script-Fu/Mandriva/Save the jpeg image to the right format for bootsplash"       ; where it goes
-   "Transform a png image to a jpg compatible image for bootsplash"   ; script description
+   "<Image>/Filters/Mandriva/Save the jpeg image to the right format for bootsplash"       ; where it goes
+   "Transform an image to a jpg compatible image for bootsplash"   ; script description
    "Warly/blino"                             ; author
    "Copyright 2006 by Mandriva; GNU GPL"  ; copyright
    "2006-09-01"                                     ; date
