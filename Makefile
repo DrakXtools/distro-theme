@@ -1,6 +1,6 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.4.2
+VERSION=1.4.3
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
@@ -40,7 +40,7 @@ install:
 	  install -m644 common/plymouth/*.script $(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 common/plymouth/*.png $(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.plymouth $(prefix)$(sharedir)/plymouth/themes/$$t/; \
-	  install -m644 $$t/gfxboot/welcome.png $(prefix)/$(sharedir)/plymouth/themes/$$t/welcome.png; \
+	  install -m644 $$t/plymouth/*.png $(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
 	  for h in 0000 0700 1300 1800 ; \
 	  do \

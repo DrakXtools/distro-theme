@@ -1,5 +1,17 @@
 # Mdv splashy like theme
 
+anim.imagecount = 32;
+anim.target_width =  0.5* 0.46 * SpriteWindowGetWidth();
+anim.target_height =  0.5* 0.11 * SpriteWindowGetWidth();
+
+fun RotatedImage (index){
+	index = Math.Int(index);
+	if (!RotatedImageCache[index])
+		RotatedImageCache[index] = anim.original_image.Rotate((Math.Pi*2*index)/anim.imagecount).Scale(anim.target_width, anim.target_height);
+
+	return RotatedImageCache[index];
+	}
+
 
 if (PlymouthGetMode() == "suspend" || PlymouthGetMode() == "resume") {
   background.original_image = ImageNew("suspend.png");
@@ -7,10 +19,33 @@ if (PlymouthGetMode() == "suspend" || PlymouthGetMode() == "resume") {
   SpriteWindowSetBackgroundBottomColor(0, 1, 0);
 }
 else {
-  logo.original_image = ImageNew("logo.png");
-  background.original_image = ImageNew("welcome.png");
+  logo.original_image = ImageNew("logo_mandriva.png");
+  background.original_image = ImageNew("background.png");
   SpriteWindowSetBackgroundTopColor(0.234, 0.43, 0.705);
   SpriteWindowSetBackgroundBottomColor(0.16, 0.25, 0.44);
+
+  anim.image= ImageNew("animation.png");
+  anim.original_image= anim.image.Scale(anim.target_width, anim.target_width);
+
+  anim.sprite = SpriteNew();
+  SpriteSetImage(anim.sprite, RotatedImage (0));
+  SpriteSetX (anim.sprite, (SpriteWindowGetWidth() - RotatedImage(0).GetWidth()) / 2);
+  SpriteSetY (anim.sprite, SpriteWindowGetHeight() * 0.82);
+  anim.angle = 0;
+  anim.index = 0;
+
+  motif.original_image = ImageNew("motif.png");
+  motif.image = motif.original_image.Scale(motif.original_image.GetWidth() * SpriteWindowGetWidth() / ImageGetWidth(background.original_image), ImageGetHeight(motif.original_image) * SpriteWindowGetHeight() / ImageGetHeight(background.original_image));
+  motif.sprite = SpriteNew();
+  SpriteSetImage(motif.sprite, motif.image);
+  SpriteSetOpacity(motif.sprite, 0);
+  SpriteSetY(motif.sprite, (SpriteWindowGetHeight() - ImageGetHeight(motif.image)) / 2);
+  if (PlymouthGetMode() == "shutdown") {
+    motif.opacity = 1;
+  }
+  else {
+    motif.opacity = 0;
+  }
 }
 
 ratio =  ImageGetWidth(logo.original_image) / ImageGetHeight(logo.original_image);
@@ -30,25 +65,29 @@ SpriteSetPosition (background.sprite, 0, 0, -10);
 sprite_prompt = SpriteNew();
 
 
+
+
 fun refresh_callback ()
   {
-
     if (status == "normal")
       {
-        logo.opacity_angle += ((2 * 3.14) / 50) * 0.5;  # 0.5 HZ
-        min_opacity = 0.3;
-        opacity = (MathCos(logo.opacity_angle) + 1) / 2;
-        opacity *= 1 - min_opacity;
-        opacity += min_opacity;
-        SpriteSetOpacity (logo.sprite, opacity);
+	anim.index += 1;
+	anim.index %= anim.imagecount;
+	SpriteSetImage(anim.sprite, RotatedImage (anim.index));
+        SpriteSetOpacity (anim.sprite, 1);
+	SpriteSetOpacity (motif.sprite, motif.opacity);
       }
     else
       {
-        SpriteSetOpacity (logo.sprite, 1);
+        SpriteSetOpacity (anim.sprite, 0);
+	SpriteSetOpacity (motif.sprite, 0);
       }
+
   }
-  
-PlymouthSetRefreshFunction (refresh_callback);
+ 
+if (PlymouthGetMode() != "suspend" && PlymouthGetMode() != "resume") {
+  PlymouthSetRefreshFunction (refresh_callback);
+}
 
 #----------------------------------------- Dialogue --------------------------------
 
@@ -123,8 +162,9 @@ fun display_password_callback (prompt, bullets)
 	dialog_setup();
     else 
 	dialog_opacity(1);
-    logo.opacity_angle=0; 
-    SpriteSetOpacity(logo.sprite, 1);
+    SpriteSetOpacity(motif.sprite, 0);
+    SpriteSetOpacity(anim.sprite, 0);
+	
     SpriteSetImage(dialog.prompt_sprite, ImageText(prompt, 1.0, 1.0, 1.0));
     for (index = 0; dialog.bullet[index] || index < bullets; index++)
       { 
@@ -150,7 +190,7 @@ fun display_message_callback (prompt)
   
 prompt = ImageText(prompt,1.0, 1.0, 1.0);
 SpriteSetImage(sprite_prompt, prompt);
-SpriteSetPosition(sprite_prompt,  (SpriteWindowGetWidth() - ImageGetWidth(prompt)) / 2, SpriteWindowGetHeight() * 0.89, 2);
+SpriteSetPosition(sprite_prompt,  (SpriteWindowGetWidth() - ImageGetWidth(prompt)) / 2, SpriteWindowGetHeight() * 0.93, 2);
   }
 
 /* instantiate dialog at startup, to ensure all icons are loaded in memory before initrd is unmounted, in case /usr isn't mounted yet */
@@ -161,38 +201,50 @@ PlymouthSetMessageFunction(display_message_callback);
 
 #----------------------------------------- Progress Bar --------------------------------
 
+if (PlymouthGetMode() == "suspend" || PlymouthGetMode() == "resume") {
+  progress_box.original_image = ImageNew("progress_box_background.png");
+  progress_box.image = ImageScale(progress_box.original_image, SpriteWindowGetWidth() * 0.44, ImageGetHeight(progress_box.original_image));
+  progress_box.edge = ImageNew("progress_box_edge.png");
+  progress_box.left_edge_sprite = SpriteNew();
+  progress_box.right_edge_sprite = SpriteNew();
+  progress_box.sprite = SpriteNew();
+  SpriteSetImage(progress_box.sprite, progress_box.image);
+  SpriteSetImage(progress_box.left_edge_sprite, progress_box.edge);
+  SpriteSetImage(progress_box.right_edge_sprite, progress_box.edge);
 
-progress_box.original_image = ImageNew("progress_box_background.png");
-progress_box.image = ImageScale(progress_box.original_image, SpriteWindowGetWidth() * 0.44, ImageGetHeight(progress_box.original_image));
-progress_box.edge = ImageNew("progress_box_edge.png");
-progress_box.left_edge_sprite = SpriteNew();
-progress_box.right_edge_sprite = SpriteNew();
-progress_box.sprite = SpriteNew();
-SpriteSetImage(progress_box.sprite, progress_box.image);
-SpriteSetImage(progress_box.left_edge_sprite, progress_box.edge);
-SpriteSetImage(progress_box.right_edge_sprite, progress_box.edge);
+  progress_box.x = SpriteWindowGetWidth()  / 2 -    ImageGetWidth(progress_box.image)  / 2;
+  progress_box.y = SpriteWindowGetHeight() * 0.86 - ImageGetHeight(progress_box.image) / 2;
 
-progress_box.x = SpriteWindowGetWidth()  / 2 -    ImageGetWidth(progress_box.image)  / 2;
-progress_box.y = SpriteWindowGetHeight() * 0.86 - ImageGetHeight(progress_box.image) / 2;
+  SpriteSetPosition(progress_box.sprite, progress_box.x, progress_box.y, 0);
+  SpriteSetPosition(progress_box.left_edge_sprite, progress_box.x-1, progress_box.y, 0);
+  SpriteSetPosition(progress_box.right_edge_sprite, progress_box.x + ImageGetWidth(progress_box.image) , progress_box.y, 0);
 
-SpriteSetPosition(progress_box.sprite, progress_box.x, progress_box.y, 0);
-SpriteSetPosition(progress_box.left_edge_sprite, progress_box.x-1, progress_box.y, 0);
-SpriteSetPosition(progress_box.right_edge_sprite, progress_box.x + ImageGetWidth(progress_box.image) , progress_box.y, 0);
+  progress_bar.original_image = ImageNew("progress_bar.png");
+  progress_bar.sprite = SpriteNew();
 
-
-progress_bar.original_image = ImageNew("progress_bar.png");
-progress_bar.sprite = SpriteNew();
-
-SpriteSetPosition(progress_bar.sprite, progress_box.x + 1, progress_box.y + 2, 1);
+  SpriteSetPosition(progress_bar.sprite, progress_box.x + 1, progress_box.y + 2, 1);
+}
 
 fun progress_callback (duration, progress)
   {
+if (PlymouthGetMode() == "suspend" || PlymouthGetMode() == "resume") {
     new_width = (ImageGetWidth (progress_box.image) - 2) * progress;
     if (ImageGetWidth (progress_bar.image) != MathInt (new_width))
       {
         progress_bar.image = ImageScale(progress_bar.original_image, new_width, ImageGetHeight(progress_bar.original_image));
         SpriteSetImage (progress_bar.sprite, progress_bar.image);
       }
+  }
+
+  if (PlymouthGetMode() == "shutdown") {
+   motif.opacity = 1 - progress;
+  }
+  else {
+   motif.opacity = progress;
+}
+
+
+	
   }
 
 PlymouthSetBootProgressFunction(progress_callback);
