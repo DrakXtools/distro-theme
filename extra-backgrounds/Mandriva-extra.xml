@@ -1,0 +1,109 @@
+<background>
+  <starttime>
+    <year>2009</year>
+    <month>10</month>
+    <day>29</day>
+    <hour>00</hour>
+    <minute>00</minute>
+    <second>00</second>
+  </starttime>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Star.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Star.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Tassili_n_Ajjer_Algerie.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Tassili_n_Ajjer_Algerie.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Tassili_n_Ajjer_Algerie.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Light_My_Fire_by_missumissu.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Light_My_Fire_by_missumissu.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Light_My_Fire_by_missumissu.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Dog.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Dog.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Dog.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Frozen.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Frozen.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Frozen.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Ladybug.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Ladybug.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Ladybug.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Sweet.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Sweet.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Sweet.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Pinguins.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Pinguins.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Pinguins.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Stones.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Stones.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Stones.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Poppy.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Poppy.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Poppy.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Web.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Web.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Web.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Star.jpg</to>
+</transition>
+</background>

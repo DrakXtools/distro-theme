@@ -1,10 +1,10 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.4.3
+VERSION=1.4.4
 
 THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
 
-FILES=$(THEMES) Makefile common gimp
+FILES=$(THEMES) Makefile common gimp extra-backgrounds
 sharedir=/usr/share
 configdir=/etc
 
@@ -32,7 +32,9 @@ install:
 
 	mkdir -p $(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(prefix)/$(sharedir)/mdk/backgrounds
-	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
+	install -m 644 common/screensaver/*.jpg $(prefix)$(sharedir)/mdk/screensaver
+	install -m 644 extra-backgrounds/*.jpg $(prefix)$(sharedir)/mdk/backgrounds
+	install -m 644 extra-backgrounds/*.xml $(prefix)$(sharedir)/mdk/backgrounds
 #	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
 	@for t in $(THEMES); do \
           set -x; set -e; \
