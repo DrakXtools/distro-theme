@@ -162,7 +162,7 @@ fun display_password_callback (prompt, bullets)
     motif.sprite.SetOpacity(0);
     anim.sprite.SetOpacity(0);
 	
-    dialog.prompt_sprite.SetImage(ImageText(prompt, 1.0, 1.0, 1.0));
+    dialog.prompt_sprite.SetImage(Image.Text(prompt, 1.0, 1.0, 1.0));
     for (index = 0; dialog.bullet[index] || index < bullets; index++)
       { 
 	
@@ -185,7 +185,7 @@ fun display_password_callback (prompt, bullets)
 fun display_message_callback (prompt)
   {
   
-prompt = ImageText(prompt,1.0, 1.0, 1.0);
+prompt = Image.Text(prompt,1.0, 1.0, 1.0);
 sprite_prompt.SetImage(prompt);
 sprite_prompt.SetPosition((Window.GetWidth() - prompt.GetWidth()) / 2, Window.GetHeight() * 0.93, 2);
   }
