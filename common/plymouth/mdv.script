@@ -29,8 +29,8 @@ else {
 
   anim.sprite = SpriteNew();
   anim.sprite.SetImage(RotatedImage (0));
-  anim.sprite.SetX((Window.GetWidth() - RotatedImage(0).GetWidth()) / 2);
-  anim.sprite.SetY(Window.GetHeight() * 0.82);
+  anim.sprite.SetX((Window.GetX() + Window.GetWidth() - RotatedImage(0).GetWidth()) / 2);
+  anim.sprite.SetY(Window.GetY() + Window.GetHeight() * 0.82);
   anim.angle = 0;
   anim.index = 0;
 
@@ -54,13 +54,13 @@ logo.image = logo.original_image.Scale(reduction * Window.GetWidth() , reduction
 logo.sprite = SpriteNew();
 logo.sprite.SetImage(logo.image);
 logo.opacity_angle = 0;
-logo.sprite.SetX(( Window.GetWidth()  - logo.image.GetWidth())  / 2);
-logo.sprite.SetY(50);
+logo.sprite.SetX((Window.GetX() + Window.GetWidth()  - logo.image.GetWidth())  / 2);
+logo.sprite.SetY(Window.GetY() + 50);
 
 background.image = background.original_image.Scale( Window.GetWidth() , Window.GetHeight());
 background.sprite = SpriteNew();
 background.sprite.SetImage(background.image);
-background.sprite.SetPosition(0, 0, -10);
+background.sprite.SetPosition(Window.GetX(), Window.GetY(), -10);
 
 sprite_prompt = SpriteNew();
 
@@ -103,8 +103,8 @@ fun dialog_setup()
     
     box.sprite = SpriteNew();
     box.sprite.SetImage(box.image);
-    box.x = Window.GetWidth()  / 2 - box.image.GetWidth()/2;
-    box.y = Window.GetHeight() / 2 - box.image.GetHeight()/2;
+    box.x = Window.GetX() + Window.GetWidth()  / 2 - box.image.GetWidth()/2;
+    box.y = Window.GetY() + Window.GetHeight() / 2 - box.image.GetHeight()/2;
     box.z = 10000;
     box.sprite.SetPosition(box.x, box.y, box.z);
     
@@ -187,7 +187,7 @@ fun display_message_callback (prompt)
   
 prompt = Image.Text(prompt,1.0, 1.0, 1.0);
 sprite_prompt.SetImage(prompt);
-sprite_prompt.SetPosition((Window.GetWidth() - prompt.GetWidth()) / 2, Window.GetHeight() * 0.93, 2);
+sprite_prompt.SetPosition(Window.GetX() + (Window.GetWidth() - prompt.GetWidth()) / 2, Window.GetY() + Window.GetHeight() * 0.93, 2);
   }
 
 /* instantiate dialog at startup, to ensure all icons are loaded in memory before initrd is unmounted, in case /usr isn't mounted yet */
@@ -209,8 +209,8 @@ if (Plymouth.GetMode() == "suspend" || Plymouth.GetMode() == "resume") {
   progress_box.left_edge_sprite.SetImage(progress_box.edge);
   progress_box.right_edge_sprite.SetImage(progress_box.edge);
 
-  progress_box.x = Window.GetWidth()  / 2 -    progress_box.image.GetWidth()  / 2;
-  progress_box.y = Window.GetHeight() * 0.86 - progress_box.image.GetHeight() / 2;
+  progress_box.x = Window.GetX() + Window.GetWidth()  / 2 -    progress_box.image.GetWidth()  / 2;
+  progress_box.y = Window.GetY() + Window.GetHeight() * 0.86 - progress_box.image.GetHeight() / 2;
 
   progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 0);
   progress_box.left_edge_sprite.SetPosition(progress_box.x-1, progress_box.y, 0);
