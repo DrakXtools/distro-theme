@@ -1,3 +1,5 @@
+Rustic_Chair.jpg
+
 <background>
   <starttime>
     <year>2009</year>
@@ -9,101 +11,101 @@
   </starttime>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Star.jpg</file>
+ <file>/usr/share/mdk/backgrounds/Antes_del_vuelo.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Star.jpg</from>
- <to>/usr/share/mdk/backgrounds/Tassili_n_Ajjer_Algerie.jpg</to>
+ <from>/usr/share/mdk/backgrounds/Antes_del_vuelo.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Flower.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Tassili_n_Ajjer_Algerie.jpg</file>
+ <file>/usr/share/mdk/backgrounds/Flower.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Tassili_n_Ajjer_Algerie.jpg</from>
- <to>/usr/share/mdk/backgrounds/Light_My_Fire_by_missumissu.jpg</to>
+ <from>/usr/share/mdk/backgrounds/Flower.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Smiley01.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Light_My_Fire_by_missumissu.jpg</file>
+ <file>/usr/share/mdk/backgrounds/Smiley01.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Light_My_Fire_by_missumissu.jpg</from>
- <to>/usr/share/mdk/backgrounds/Dog.jpg</to>
+ <from>/usr/share/mdk/backgrounds/Smiley01.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Autumn.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Dog.jpg</file>
+ <file>/usr/share/mdk/backgrounds/Autumn.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Dog.jpg</from>
- <to>/usr/share/mdk/backgrounds/Frozen.jpg</to>
+ <from>/usr/share/mdk/backgrounds/Autumn.jpg</from>
+ <to>/usr/share/mdk/backgrounds/gouttes2500.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Frozen.jpg</file>
+ <file>/usr/share/mdk/backgrounds/gouttes2500.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Frozen.jpg</from>
- <to>/usr/share/mdk/backgrounds/Ladybug.jpg</to>
+ <from>/usr/share/mdk/backgrounds/gouttes2500.jpg</from>
+ <to>/usr/share/mdk/backgrounds/chevalier.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Ladybug.jpg</file>
+ <file>/usr/share/mdk/backgrounds/chevalier.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Ladybug.jpg</from>
- <to>/usr/share/mdk/backgrounds/Sweet.jpg</to>
+ <from>/usr/share/mdk/backgrounds/chevalier.jpg</from>
+ <to>/usr/share/mdk/backgrounds/hibiscus.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Sweet.jpg</file>
+ <file>/usr/share/mdk/backgrounds/hibiscus.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Sweet.jpg</from>
- <to>/usr/share/mdk/backgrounds/Pinguins.jpg</to>
+ <from>/usr/share/mdk/backgrounds/hibiscus.jpg</from>
+ <to>/usr/share/mdk/backgrounds/night_swim.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Pinguins.jpg</file>
+ <file>/usr/share/mdk/backgrounds/night_swim.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Pinguins.jpg</from>
- <to>/usr/share/mdk/backgrounds/Stones.jpg</to>
+ <from>/usr/share/mdk/backgrounds/night_swim.jpg</from>
+ <to>/usr/share/mdk/backgrounds/fields.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Stones.jpg</file>
+ <file>/usr/share/mdk/backgrounds/fields.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Stones.jpg</from>
- <to>/usr/share/mdk/backgrounds/Poppy.jpg</to>
+ <from>/usr/share/mdk/backgrounds/fields.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Ice.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Poppy.jpg</file>
+ <file>/usr/share/mdk/backgrounds/Ice.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Poppy.jpg</from>
- <to>/usr/share/mdk/backgrounds/Web.jpg</to>
+ <from>/usr/share/mdk/backgrounds/Ice.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Rustic_Chair.jpg</to>
 </transition>
 <static>
  <duration>3595.0</duration>
- <file>/usr/share/mdk/backgrounds/Web.jpg</file>
+ <file>/usr/share/mdk/backgrounds/Rustic_Chair.jpg</file>
 </static>
 <transition>
  <duration>5.0</duration>
- <from>/usr/share/mdk/backgrounds/Web.jpg</from>
- <to>/usr/share/mdk/backgrounds/Star.jpg</to>
+ <from>/usr/share/mdk/backgrounds/Rustic_Chair.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Antes_del_vuelo.jpg</to>
 </transition>
 </background>
