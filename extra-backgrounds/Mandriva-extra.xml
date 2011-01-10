@@ -104,6 +104,51 @@
 <transition>
  <duration>5.0</duration>
  <from>/usr/share/mdk/backgrounds/Rustic_Chair.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Beach.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Beach.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Beach.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Cat.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Cat.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Cat.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Event.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Event.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Event.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Flowers.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Flowers.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Flowers.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Sunset.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Sunset.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Sunset.jpg</from>
  <to>/usr/share/mdk/backgrounds/Antes_del_vuelo.jpg</to>
 </transition>
 </background>
