@@ -113,6 +113,15 @@
 <transition>
  <duration>5.0</duration>
  <from>/usr/share/mdk/backgrounds/Beach.jpg</from>
+ <to>/usr/share/mdk/backgrounds/Canal.jpg</to>
+</transition>
+<static>
+ <duration>3595.0</duration>
+ <file>/usr/share/mdk/backgrounds/Canal.jpg</file>
+</static>
+<transition>
+ <duration>5.0</duration>
+ <from>/usr/share/mdk/backgrounds/Canal.jpg</from>
  <to>/usr/share/mdk/backgrounds/Cat.jpg</to>
 </transition>
 <static>
