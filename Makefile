@@ -32,7 +32,7 @@ install:
 
 	mkdir -p $(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(prefix)/$(sharedir)/mdk/backgrounds
-	install -m 644 common/screensaver/*.jpg $(prefix)$(sharedir)/mdk/screensaver
+	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
 	install -m 644 extra-backgrounds/*.jpg $(prefix)$(sharedir)/mdk/backgrounds
 	install -m 644 extra-backgrounds/*.xml $(prefix)$(sharedir)/mdk/backgrounds
 #	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
