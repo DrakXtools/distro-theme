@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=Mandriva Powerpack theme
-Description=Mandriva Powerpack theme
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/Mandriva-Powerpack
-ScriptFile=/usr/share/plymouth/themes/Mandriva-Powerpack/mdv.script
