@@ -5,4 +5,4 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/Moondrake
-ScriptFile=/usr/share/plymouth/themes/Moondrake/mdk.script
+ScriptFile=/usr/share/plymouth/themes/Moondrake/mdv.script
