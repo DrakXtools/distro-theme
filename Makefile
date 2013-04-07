@@ -1,8 +1,8 @@
 NAME=mandriva-theme
 PACKAGE=mandriva-theme
-VERSION=1.4.13
+VERSION=1.4.14
 
-THEMES=Mandriva-Free Mandriva-One Mandriva-Powerpack Mandriva-Flash
+THEMES=Moondrake
 
 FILES=$(THEMES) Makefile common gimp extra-backgrounds
 sharedir=/usr/share
@@ -14,14 +14,14 @@ SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 all:
 
 install:
-	@mkdir -p $(prefix)$(sharedir)/mdk/backgrounds/
+	@mkdir -p $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds/
 	@/bin/cp -f gimp/scripts/gimp-normalize-to-bootsplash.scm tmp-gimp-command
 	@cat gimp/scripts/gimp-convert-to-jpeg.scm >> tmp-gimp-command
 	@for i in */gfxboot/*.png ; do \
 	    echo \(gimp-normalize-to-bootsplash 1.0 \"$$i\" \"`dirname $$i`/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
 	done
 	@for i in */background/*.png ; do \
-            echo \(gimp-convert-to-jpeg 0.98 \"$$i\" \"$(prefix)$(sharedir)/mdk/backgrounds/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
+            echo \(gimp-convert-to-jpeg 0.98 \"$$i\" \"$(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
 	done
 	@echo \(gimp-quit 1\) >> tmp-gimp-command
 	@echo running gimp to convert images
@@ -30,35 +30,21 @@ install:
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp  --console-messages -i -d  -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "bootsplash/data/*.png") (gimp-quit 1))'
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp --console-messages -i -d -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "gfxboot/*.png") (gimp-quit 1))'
 
-	mkdir -p $(prefix)/$(sharedir)/mdk/screensaver
-	mkdir -p $(prefix)/$(sharedir)/mdk/backgrounds
-	install -m 644 common/screensaver/*.png $(prefix)$(sharedir)/mdk/screensaver
-	install -m 644 extra-backgrounds/*.jpg $(prefix)$(sharedir)/mdk/backgrounds
-	install -m 644 extra-backgrounds/*.xml $(prefix)$(sharedir)/mdk/backgrounds
+	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
+	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/backgrounds
+	install -m 644 common/screensaver/*.png $(DESTDIR)$(prefix)$(sharedir)/mdk/screensaver
+	install -m 644 extra-backgrounds/*.jpg $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
+	install -m 644 extra-backgrounds/*.xml $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 #	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
 	@for t in $(THEMES); do \
           set -x; set -e; \
-	  install -d $(prefix)/$(sharedir)/plymouth/themes/$$t; \
-	  install -m644 common/plymouth/*.script $(prefix)$(sharedir)/plymouth/themes/$$t/; \
-	  install -m644 common/plymouth/*.png $(prefix)$(sharedir)/plymouth/themes/$$t/; \
-	  install -m644 $$t/plymouth/*.plymouth $(prefix)$(sharedir)/plymouth/themes/$$t/; \
-	  install -m644 $$t/plymouth/*.png $(prefix)$(sharedir)/plymouth/themes/$$t/; \
-	  install -m644 $$t/background/$$t.xml $(prefix)$(sharedir)/mdk/backgrounds/; \
-	  for h in 0000 0700 1300 1800 ; \
-	  do \
-	  	ln -f -s $$t-1920x1440-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1024x768-$$h.jpg ; \
-	  	ln -f -s $$t-1920x1440-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1600x1200-$$h.jpg ; \
-	  	ln -f -s $$t-1920x1200-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1280x800-$$h.jpg ; \
-	  	ln -f -s $$t-1920x1200-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1440x900-$$h.jpg ; \
-	  	ln -f -s $$t-1920x1200-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1680x1050-$$h.jpg ; \
-	  	ln -f -s $$t-1920x1200-$$h.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-1024x600-$$h.jpg ; \
-	  done ; \
-	  for d in 800x480 1024x768 1280x1024 1280x800 1440x900 1600x1200 1680x1050 1920x1080 1920x1200 1920x1440 1024x600 800x600 ; \
-	  do \
-	    [ -e $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d-1300.jpg ] && ln -f -s $$t-$$d-1300.jpg $(prefix)$(sharedir)/mdk/backgrounds/$$t-$$d.jpg; \
-	  done; \
-	  install -d $(prefix)$(sharedir)/gfxboot/themes/$$t;  \
-	  install -m644 $$t/gfxboot/*.jpg $(prefix)$(sharedir)/gfxboot/themes/$$t/; \
+	  install -d $(DESTDIR)$(prefix)/$(sharedir)/plymouth/themes/$$t; \
+	  install -m644 common/plymouth/*.script $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -m644 common/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -m644 $$t/plymouth/*.plymouth $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -m644 $$t/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
+	  install -d $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t;  \
+	  install -m644 $$t/gfxboot/*.jpg $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/; \
         done
 
 changelog:

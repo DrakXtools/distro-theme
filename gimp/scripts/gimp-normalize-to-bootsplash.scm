@@ -40,7 +40,7 @@
 		(if (= (car (gimp-drawable-is-rgb drawable)) FALSE)
 		    (gimp-image-convert-rgb image))
 
-		(file-jpeg-save 1 image drawable outfile outfile quality 0 0 0 "Mandriva Theme" 0 1 0 0 )
+		(file-jpeg-save 1 image drawable outfile outfile quality 0 0 0 "Moondrake Theme" 0 1 0 0 )
 		(gimp-image-delete image)
 	 )
 	
