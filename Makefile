@@ -39,7 +39,6 @@ install:
 	@for t in $(THEMES); do \
           set -x; set -e; \
 	  install -d $(DESTDIR)$(prefix)/$(sharedir)/plymouth/themes/$$t; \
-	  install -m644 common/plymouth/*.script $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 common/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.plymouth $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
