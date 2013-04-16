@@ -1,6 +1,6 @@
-NAME=mandriva-theme
-PACKAGE=mandriva-theme
-VERSION=1.4.14
+NAME=distro-theme
+PACKAGE=distro-theme
+VERSION=1.4.15
 
 THEMES=Moondrake
 
