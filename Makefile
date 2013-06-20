@@ -2,7 +2,7 @@ NAME=distro-theme
 PACKAGE=distro-theme
 VERSION=1.4.15
 
-THEMES=Moondrake
+THEMES=Moondrake OpenMandriva
 
 FILES=$(THEMES) Makefile common gimp extra-backgrounds
 sharedir=/usr/share
