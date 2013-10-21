@@ -39,7 +39,7 @@ install:
 	install -m 644 common/screensaver/*.png $(DESTDIR)$(prefix)$(sharedir)/mdk/screensaver
 	install -m 644 extra-backgrounds/*.jpg $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 	install -m 644 extra-backgrounds/*.xml $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
-	install -m644 */background/*.jpg $(prefix)$(sharedir)/mdk/backgrounds 
+	install -m644 */background/*.jpg $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds 
 	@for t in $(THEMES); do \
           set -x; set -e; \
 	  install -d $(DESTDIR)$(prefix)/$(sharedir)/plymouth/themes/$$t; \
