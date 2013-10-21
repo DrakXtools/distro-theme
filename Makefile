@@ -49,8 +49,7 @@ install:
 	  install -m644 $$t/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -d $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t;  \
 	  install -m644 $$t/gfxboot/*.jpg $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/; \
-        done \
-		\
+        done; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t/icons; \
 	  install -m644 $$t/gfxboot/*.* $(DESTDIR)/boot/grub2/themes/$$t/; \
@@ -76,10 +75,6 @@ install:
 		convert -colorspace Gray $$t/background/$$t-$(FALLBACK_RES).jpg $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/suspend.png; \
 	  fi; \
 	done
-
-dist:
-	git archive --prefix=$(NAME)-$(VERSION)/ HEAD > $(NAME)-$(VERSION).tar;
-	$(info $(NAME)-$(VERSION).tar is ready)
 
 log: ChangeLog
 
