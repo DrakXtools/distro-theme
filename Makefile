@@ -5,7 +5,7 @@ VERSION=1.4.21
 DEFAULT_RES:=1920x1080
 FALLBACK_RES:=1024x768
 
-THEMES=moondrake OpenMandriva
+THEMES=Moondrake OpenMandriva
 
 FILES=$(THEMES) Makefile common gimp extra-backgrounds
 sharedir=/usr/share
