@@ -15,9 +15,7 @@ configdir=/etc
 SVNSOFT=svn+ssh://svn.mandriva.com/svn/soft/theme/mandriva-theme/
 SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 
-all:
-
-install:
+png2jpg:
 	@mkdir -p $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds/
 	@/bin/cp -f gimp/scripts/gimp-normalize-to-bootsplash.scm tmp-gimp-command
 	@cat gimp/scripts/gimp-convert-to-jpeg.scm >> tmp-gimp-command
@@ -34,6 +32,9 @@ install:
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp  --console-messages -i -d  -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "bootsplash/data/*.png") (gimp-quit 1))'
 #	GIMP2_DIRECTORY=`pwd`/gimp gimp --console-messages -i -d -b '(begin (gimp-normalize-to-bootsplash-dirs "1.0" "*" "gfxboot/*.png") (gimp-quit 1))'
 
+all:
+
+install:
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/backgrounds
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/icons
