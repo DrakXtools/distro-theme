@@ -37,14 +37,13 @@ install:
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/backgrounds
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/icons
-	install -m 644 common/screensaver/*.jpg $(DESTDIR)$(prefix)$(sharedir)/mdk/screensaver
 	install -m 644 extra-backgrounds/*.*g $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 	install -m 644 extra-backgrounds/*.xml $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 	install -m644 */background/*.*g $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 	install -m644 */icons/*.*g $(DESTDIR)$(prefix)$(sharedir)/icons
 	@for t in $(THEMES); do \
           set -x; set -e; \
-	  [ -d $$t/screensaver ] && install -m644 $$t/screensaver/*.png $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
+	  [ -d $$t/screensaver ] && install -m644 $$t/screensaver/*.??g $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
 	  install -d $(DESTDIR)$(prefix)/$(sharedir)/plymouth/themes/$$t; \
 	  install -m644 $$t/plymouth/*.script $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 common/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
