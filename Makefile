@@ -15,7 +15,7 @@ configdir=/etc
 SVNSOFT=svn+ssh://svn.mandriva.com/svn/soft/theme/mandriva-theme/
 SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 
-all:
+all: png2jpg
 
 install:
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
@@ -119,7 +119,7 @@ png2jpg:
 	    echo \(gimp-normalize-to-bootsplash 1.0 \"$$i\" \"`dirname $$i`/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
 	done
 	@for i in */background/*.png ; do \
-            echo \(gimp-convert-to-jpeg 0.98 \"$$i\" \"$(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
+            echo \(gimp-convert-to-jpeg 0.98 \"$$i\" \"`dirname $$i`/`basename $$i .png`.jpg\"\) >> tmp-gimp-command; \
 	done
 	@echo \(gimp-quit 1\) >> tmp-gimp-command
 	@echo running gimp to convert images
