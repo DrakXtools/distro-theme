@@ -1,0 +1,188 @@
+2013-11-13 14:01:00 +0100 bero (Bernhard Rosenkränzer)
+
+	* Converted Flavor of Freedom 07 from PNG to JPG
+
+2013-11-12 22:58:29 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* remove wrong file (HEAD, origin/master, origin/HEAD, master)
+
+2013-11-12 22:33:01 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* generated changelog
+
+2013-11-12 22:32:43 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* install all extra backgrounds
+
+2013-11-12 22:04:08 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* generated changelog
+
+2013-11-12 22:02:40 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* rename files to new filename scheme
+
+2013-11-12 21:35:18 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* rename winner backgrounds
+
+2013-11-12 19:30:13 +0100 Tomasz Paweł Gajc 
+
+	* add other wallpapers from "The Flavor of Freedom" wallpaper contest
+
+2013-11-12 18:58:33 +0100 Tomasz Paweł Gajc 
+
+	* add winner images from "The Flavor of Freedom" wallpaper contest
+
+2013-11-08 11:32:25 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* fix installation for new screensaver files
+
+2013-11-08 10:21:32 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* add new screensaver images from rugyada move current TUX screensaver to Moondrake subfolder
+
+2013-11-08 10:01:38 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* add light version for OpenMandriva wallpappers from rugyada
+
+2013-11-02 20:45:20 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* generated changelog
+
+2013-11-02 20:44:59 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* fix makefile for last changes
+
+2013-11-02 20:20:37 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* remove motif.png from common files handle default backgrounds in Makefile
+
+2013-11-02 20:05:06 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* generated changelog
+
+2013-11-02 20:04:16 +0100 tpg (Tomasz Paweł Gajc) 
+
+	* add new artwork from rugyada <rugyada@gmail.com> rename mdv.script to omv.script
+
+2013-10-01 18:36:42 +0200 cristina 
+
+	* Added background.png and motif.png, replaced openmandriva-logo.png
+
+2013-09-12 17:34:27 +0200 tpg 
+
+	* generated changelog
+
+2013-09-12 17:30:10 +0200 tpg 
+
+	* install png files - version bump
+
+2013-09-12 17:24:59 +0200 tpg 
+
+	* convert OpenMandriva backgorunds to png format
+
+2013-08-22 18:41:40 +0200 tpg 
+
+	* generated changelog
+
+2013-08-22 18:41:28 +0200 tpg 
+
+	* resize openmandriva.png grub icon to 32x32
+
+2013-08-22 18:20:26 +0200 tpg 
+
+	* generated changelog
+
+2013-08-22 18:19:30 +0200 tpg 
+
+	*  remove motif from OpenMandriva plymout animation script  generate suspend.png image in a same way like backgound but with gray scale
+
+2013-08-22 13:30:01 +0200 tpg 
+
+	* generated changelog
+
+2013-08-22 13:29:27 +0200 tpg 
+
+	* 1.4.19
+
+2013-08-22 13:27:45 +0200 tpg 
+
+	* generated changelog
+
+2013-08-22 13:27:33 +0200 tpg 
+
+	* OpenMandriva/icons/omv-button.svg -> OpenMandriva/icons/openmandriva.svg
+
+2013-08-22 13:26:37 +0200 tpg 
+
+	* - remove background.png files and generate them from Makefile
+
+2013-08-22 12:01:38 +0200 tpg 
+
+	* add distribution icons for grub2 theme
+
+2013-08-22 11:41:36 +0200 tpg 
+
+	* background.png is convert from OpenMandriva-1920x1080.jpg
+
+2013-08-21 21:22:41 +0200 tpg 
+
+	* generated changelog
+
+2013-08-21 21:22:14 +0200 tpg 
+
+	*  do not run gimp normalize scripts and other - few years ago it was really needed
+
+2013-08-21 21:10:43 +0200 tpg 
+
+	* fix makefile
+
+2013-08-21 21:07:03 +0200 tpg 
+
+	* generated changelog
+
+2013-08-21 21:06:43 +0200 tpg 
+
+	* new version 1.4.18
+
+2013-08-21 21:05:07 +0200 tpg 
+
+	* generated changelog
+
+2013-08-21 20:59:07 +0200 tpg 
+
+	* move theme from grub2 package
+
+2013-08-21 19:52:22 +0200 tpg 
+
+	* fix ChangeLog generation
+
+2013-08-21 19:51:37 +0200 tpg 
+
+	* generated changelog
+
+2013-08-21 19:51:01 +0200 tpg 
+
+	* generated changelog
+
+2013-08-21 19:08:23 +0200 tpg 
+
+	* fix compress with xz
+
+2013-08-21 19:02:55 +0200 tpg 
+
+	* compress with xz
+
+2013-08-21 19:00:05 +0200 tpg 
+
+	* istall icons
+
+2013-08-21 18:48:23 +0200 tpg 
+
+	* add default icon from mandriva-kde4-config package
+
+2013-08-21 16:27:38 +0200 tpg 
+
+	* Add files
+
