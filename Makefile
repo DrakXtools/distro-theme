@@ -112,7 +112,6 @@ clean:
 	rm -f *~ \#*\#
 
 png2jpg:
-	@mkdir -p $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds/
 	@/bin/cp -f gimp/scripts/gimp-normalize-to-bootsplash.scm tmp-gimp-command
 	@cat gimp/scripts/gimp-convert-to-jpeg.scm >> tmp-gimp-command
 	@for i in */gfxboot/*.png ; do \
