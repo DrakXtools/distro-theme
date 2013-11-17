@@ -44,6 +44,7 @@ install:
 	install -m644 */icons/*.*g $(DESTDIR)$(prefix)$(sharedir)/icons
 	@for t in $(THEMES); do \
           set -x; set -e; \
+	  [ -d $$t/screensaver ] && install -m644 $$t/screensaver/*.png $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
 	  install -d $(DESTDIR)$(prefix)/$(sharedir)/plymouth/themes/$$t; \
 	  install -m644 $$t/plymouth/*.script $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 common/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
