@@ -15,7 +15,7 @@ configdir=/etc
 SVNSOFT=svn+ssh://svn.mandriva.com/svn/soft/theme/mandriva-theme/
 SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 
-all: png2jpg
+all:
 
 install:
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
