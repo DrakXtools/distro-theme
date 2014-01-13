@@ -33,7 +33,9 @@ install:
 	  install -m644 $$t/plymouth/*.plymouth $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -d $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t;  \
-	  install -m644 $$t/gfxboot/*.jpg $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/; \
+	  for i in $(shell find \$$t/gfxboot/ -name \*.jpg -o -name \*.png ); \
+	  	do install -m644 $$i $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/; \
+	  done; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t/icons; \
 	  install -m644 $$t/gfxboot/*.* $(DESTDIR)/boot/grub2/themes/$$t/; \
