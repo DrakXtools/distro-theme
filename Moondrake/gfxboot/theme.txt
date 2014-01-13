@@ -1,7 +1,7 @@
 # Global properties
-title-text: ""
+title-text: "Moondrake GNU/Linux"
 title-font: "DejaVu Sans Bold 14"
-title-color: "#FFFFFF"
+title-color: "#ff12fc"
 message-font: "DejaVu Sans Bold 14"
 message-color: "#000000"
 message-bg-color: "#f6f6f6"
