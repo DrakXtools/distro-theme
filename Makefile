@@ -87,7 +87,7 @@ ChangeLog:
 	fi;
 
 dist:
-	git archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | xz -2ec > $(NAME)-$(VERSION).tar.xz;
+	git archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | pxz -2vec > $(NAME)-$(VERSION).tar.xz;
 	$(info $(NAME)-$(VERSION).tar.xz is ready)
 
 dist-old: cleandist export tar
