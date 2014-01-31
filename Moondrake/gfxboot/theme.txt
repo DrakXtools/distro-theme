@@ -1,5 +1,5 @@
 # Global properties
-title-text: "Moondrake GNU/Linux"
+title-text: ""
 title-font: "DejaVu Sans Bold 14"
 title-color: "#ff12fc"
 message-font: "DejaVu Sans Bold 14"
