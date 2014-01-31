@@ -33,12 +33,16 @@ install:
 	  install -m644 $$t/plymouth/*.plymouth $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -d $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t;  \
-	  for i in $(shell find \$$t/gfxboot/ -name \*.jpg -o -name \*.png ); \
-	  	do install -m644 $$i $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/; \
-	  done; \
+	  convert $$t/gfxboot/back.png $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/back.jpg; \
+	  convert $$t/gfxboot/welcome.png $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/welcome.jpg; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t/icons; \
-	  install -m644 $$t/gfxboot/*.* $(DESTDIR)/boot/grub2/themes/$$t/; \
+	  install -m644 $$t/gfxboot/*.{txt,pf2} $(DESTDIR)/boot/grub2/themes/$$t/; \
+	  pushd $$t/gfxboot; \
+	  for i in *.png; do \
+	  	convert $$i $(DESTDIR)/boot/grub2/themes/$$t/`echo \$$i|sed -e 's#\.png#.jpg#g'`; \
+	  done; \
+	  popd; \
 	  if [ -d $$t/icons/gfxboot/ ]; then \
 	  install -m644 $$t/icons/gfxboot/*.* $(DESTDIR)/boot/grub2/themes/$$t/icons; \
 	  fi; \
