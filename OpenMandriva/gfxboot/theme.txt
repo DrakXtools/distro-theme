@@ -7,7 +7,7 @@ message-color: "#000000"
 message-bg-color: "#f6f6f6"
 desktop-image: "back.jpg"
 terminal-font: "Droid Sans Mono Regular 11"
-terminal-box: "item_normal_*.jpg"
+terminal-box: "item_normal_*.png"
 
 # Show the boot menu
 + boot_menu {
@@ -24,13 +24,13 @@ terminal-box: "item_normal_*.jpg"
 		item_spacing = 8
 		icon_width = 30
 		icon_height = 28
-		item_pixmap_style = "item_normal_*.jpg"
-		selected_item_pixmap_style = "highlighted_*.jpg"
+		item_pixmap_style = "item_normal_*.png"
+		selected_item_pixmap_style = "highlighted_*.png"
 		scrollbar = true
 		scrollbar_width = 10
-		scrollbar_thumb = "scrollbar_*.jpg"
-		scrollbar_frame = "scrollback_*.jpg"
-		menu_pixmap_style = "menu_bkg_*.jpg"
+		scrollbar_thumb = "scrollbar_*.png"
+		scrollbar_frame = "scrollback_*.png"
+		menu_pixmap_style = "menu_bkg_*.png"
 		max_items_shown = 10
 }
 
@@ -45,8 +45,8 @@ terminal-box: "item_normal_*.jpg"
                 font = "DejaVu Sans Bold 14"
                 text_color = "#d4e0ec"
                 text = "@TIMEOUT_NOTIFICATION_LONG@"
-                bar_style = "progress_bar_*.jpg"
-                highlight_style = "progress_bar_*.jpg"
+                bar_style = "progress_bar_*.png"
+                highlight_style = "progress_bar_*.png"
 }
 
 # Show an informational message.
