@@ -5,7 +5,7 @@ title-color: "#FFFFFF"
 message-font: "DejaVu Sans Bold 14"
 message-color: "#000000"
 message-bg-color: "#f6f6f6"
-desktop-image: "background.jpg"
+desktop-image: "back.jpg"
 terminal-font: "Droid Sans Mono Regular 11"
 terminal-box: "item_normal_*.jpg"
 
