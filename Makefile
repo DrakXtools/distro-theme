@@ -1,6 +1,6 @@
 NAME=distro-theme
 PACKAGE=distro-theme
-VERSION=1.4.26
+VERSION=1.4.28
 # set default resoltuion for background here
 DEFAULT_RES:=1920x1080
 FALLBACK_RES:=1024x768
@@ -31,26 +31,20 @@ install:
 	  [ -d $$t/screensaver ] && install -m644 $$t/screensaver/*.??g $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver; \
 	  install -d $(DESTDIR)$(prefix)/$(sharedir)/plymouth/themes/$$t; \
 	  install -m644 $$t/plymouth/*.script $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
-	  install -m644 common/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.plymouth $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -m644 $$t/plymouth/*.png $(DESTDIR)$(prefix)$(sharedir)/plymouth/themes/$$t/; \
 	  install -d $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t;  \
-	  convert $$t/gfxboot/back.png $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/back.jpg; \
-	  if [ -f $$t/gfxboot/welcome.png ]; then \
-		  convert $$t/gfxboot/welcome.png $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/welcome.jpg; \
-	  fi; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t; \
 	  install -d $(DESTDIR)/boot/grub2/themes/$$t/icons; \
+	  if [ -f $$t/gfxboot/welcome.png ]; then \
+	    convert $$t/gfxboot/welcome.png $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/welcome.jpg; \
+	    rm $$t/gfxboot/welcome.png; \
+	  fi; \
+	  if [ -f $$t/gfxboot/back.png ]; then \
+	    convert $$t/gfxboot/back.png $(DESTDIR)$(prefix)$(sharedir)/gfxboot/themes/$$t/back.jpg; \
+	  fi; \
+	  install -m644 $$t/gfxboot/*.* $(DESTDIR)/boot/grub2/themes/$$t/; \
 	  install -m644 $$t/gfxboot/theme.txt $(DESTDIR)/boot/grub2/themes/$$t/; \
-	  pushd $$t/gfxboot; \
-	    for i in *.png; do \
-	      if [ "$$i" == "back.png" -o "$$i" == "background.png" ]; then \
-	        continue; \
-	    fi; \
-	    install -m644 $$i $(DESTDIR)/boot/grub2/themes/$$t/$$i; \
-	  done; \
-	  convert back.png $(DESTDIR)/boot/grub2/themes/$$t/back.jpg; \
-	  popd; \
 	  if [ -d $$t/icons/gfxboot/ ]; then \
 	  install -m644 $$t/icons/gfxboot/*.* $(DESTDIR)/boot/grub2/themes/$$t/icons; \
 	  fi; \
@@ -95,13 +89,13 @@ ChangeLog:
 	fi;
 
 dist:
-	git archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | pxz -2vec > $(NAME)-$(VERSION).tar.xz;
+	git archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | xz -2vec -T0 > $(NAME)-$(VERSION).tar.xz;
 	$(info $(NAME)-$(VERSION).tar.xz is ready)
 
 dist-old: cleandist export tar
 
 cleandist:
-	rm -rf $(PACKAGE)-$(VERSION) $(PACKAGE)-$(VERSION).tar.bz2
+	rm -rf $(PACKAGE)-$(VERSION).tar.xz
 
 export:
 	svn export -q -rBASE . $(NAME)-$(VERSION)
