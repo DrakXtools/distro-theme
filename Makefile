@@ -7,6 +7,15 @@ FALLBACK_RES:=1024x768
 
 THEMES=Moondrake OpenMandriva
 
+SUBDIRS=$(THEMES)
+
+.PHONY: subdirs $(SUBDIRS)
+
+subdirs: $(SUBDIRS)
+
+$(SUBDIRS):
+	$(MAKE) -C $@
+
 FILES=$(THEMES) Makefile common gimp extra-backgrounds
 sharedir=/usr/share
 configdir=/etc
