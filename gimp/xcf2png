@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-gimp-console -i --batch-interpreter=python-fu-eval -b - << EOF
+gimp-console --gegl-threads=$(getconf _NPROCESSORS_ONLN) -i --batch-interpreter=python-fu-eval -b - << EOF
 import gimpfu
 
 def convert(input, output):
