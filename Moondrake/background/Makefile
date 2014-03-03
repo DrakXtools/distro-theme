@@ -4,6 +4,7 @@ BACKGROUNDS_PNG=$(subst .xcf,.png, $(BACKGROUNDS_GIMP))
 
 $(BACKGROUNDS_PNG): %.png: %.xcf
 	../../gimp/xcf2png $< $@
+	pngrewrite $@ $@
 
 pngs: $(BACKGROUNDS_PNG)
 
