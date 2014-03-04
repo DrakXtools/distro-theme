@@ -1,6 +1,6 @@
 SUBDIRS=
 
-.PHONY: subdirs $(SUBDIRS)
+.PHONY: subdirs $(SUBDIRS) clean
 
 subdirs: $(SUBDIRS)
 

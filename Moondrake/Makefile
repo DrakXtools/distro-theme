@@ -2,7 +2,7 @@ SUBDIRS=background
 
 .PHONY: subdirs $(SUBDIRS)
 
-subdirs: $(SUBDIRS)
+$(MAKECMDGOALS) subdirs: $(SUBDIRS)
 
 $(SUBDIRS):
-	$(MAKE) -C $@
+	@exec $(MAKE) -C $@ $(MAKECMDGOALS)
