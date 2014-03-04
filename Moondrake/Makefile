@@ -1,4 +1,4 @@
-SUBDIRS=background
+SUBDIRS=background gfxboot
 
 .PHONY: subdirs $(SUBDIRS)
 
