@@ -10,6 +10,7 @@ $(BACKGROUNDS_PNG): %.png: %.xcf
 	rm -f $@.orig.png
 
 pngs: $(BACKGROUNDS_PNG)
+	[ -e ../gfxboot/background.png ] || cp Moondrake-1024x768.png ../gfxboot/background.png
 
 
 clean:
