@@ -10,7 +10,7 @@ import gimpfu
 def convert(input, output, option=None):
     img = pdb.gimp_file_load(input, input)
     layer = pdb.gimp_image_merge_visible_layers(img, 1)
-    if option and option == "rgb":
+    if option and option == "rgb" and img.base_type != RGB:
         pdb.gimp_image_convert_rgb(img)
 
     pdb.gimp_file_save(img, layer, output, output)
