@@ -1,4 +1,4 @@
-SUBDIRS=background gfxboot
+SUBDIRS=background gfxboot plymouth
 
 .PHONY: subdirs $(SUBDIRS)
 
