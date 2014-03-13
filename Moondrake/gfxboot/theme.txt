@@ -1,7 +1,7 @@
 # Global properties
 title-text: ""
-title-font: "DejaVu Sans Bold 14"
-title-color: "#ff12fc"
+title-font: "Moonlight"
+title-color: "#6572d5"
 message-font: "DejaVu Sans Bold 14"
 message-color: "#000000"
 message-bg-color: "#f6f6f6"
@@ -15,8 +15,8 @@ terminal-box: "item_normal_*.png"
 		width = 705
 		top = 50%-124
 		height = 325
-		item_font = "DejaVu Sans Bold 14"
-		selected_item_font = "DejaVu Sans Bold 14"
+		item_font = "Moonlight"
+		selected_item_font = "Moonlight"
 		item_color = "#ffffff"
 		selected_item_color = "#033d6e"
 		item_height = 28
