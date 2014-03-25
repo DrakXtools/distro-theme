@@ -9,7 +9,7 @@ Moondrake-1920x1440.png: Moondrake-tux-1920x1440.xcf
 	pngrewrite $@ $@
 
 Moondrake-tux-1920x1440.png: Moondrake-tux-1920x1440.xcf
-	../../gimp/xcf2png -i $< -o $@ -a indexed
+	../../gimp/xcf2png -i $< -o $@ -a indexed -c 7
 	pngrewrite $@ $@
 
 $(BACKGROUNDS_PNG): %.png: %.xcf
