@@ -1,7 +1,7 @@
 all: background.png
 
-background.png:
-	../../gimp/xcf2png ../background/Moondrake-tux-1920x1440.xcf $@
+background.png: ../background/Moondrake-tux-1920x1440.xcf
+	../../gimp/xcf2png -i $< -o $@ 
 	pngrewrite $@ $@
 
 clean:

@@ -1,7 +1,7 @@
 all: background.png
 
-background.png:
-	../../gimp/xcf2png ../background/Moondrake-tux-1024x768.xcf $@ rgb
+background.png: ../background/Moondrake-tux-1024x768.xcf
+	../../gimp/xcf2png -i $< -o $@ -a rgb
 	pngcrush -ow $@
 
 clean:

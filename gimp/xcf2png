@@ -1,22 +1,50 @@
 #!/bin/sh
 
-INPUT="$1"
-OUTPUT="$2"
-OPTION="${3}"
+while getopts "a:i:o:r:" opt; do
+    echo $opt: $OPTARG
+    case $opt in
+        a)
+            if [ -z "$OPTIONS" ]; then
+                OPTIONS="$OPTARG"
+            else
+                OPTIONS="$OPTIONS,$OPTARG"
+            fi
+            ;;
+        i)
+            INPUT="$OPTARG"
+            ;;
+        o)
+            OUTPUT="$OPTARG"
+            ;;
+        r)
+            if [ -z "$REMOVE" ]; then
+                REMOVE="$OPTARG"
+            else
+                REMOVE="$REMOVE,$OPTARG"
+            fi
+            ;;
+    esac
+done
 
 gimp-console --gegl-threads=$(getconf _NPROCESSORS_ONLN) -i --batch-interpreter=python-fu-eval -b - << EOF
 import gimpfu
 
-def convert(input, output, option=None):
+def convert(input, output, options, remove):
     img = pdb.gimp_file_load(input, input)
+    for layer in img.layers:
+        if layer.name in remove:
+            img.remove_layer(layer)
+
     layer = pdb.gimp_image_merge_visible_layers(img, 1)
-    if option and option == "rgb" and img.base_type != RGB:
+    if "rgb" in options and img.base_type != RGB:
         pdb.gimp_image_convert_rgb(img)
 
     pdb.gimp_file_save(img, layer, output, output)
     pdb.gimp_image_delete(img)
 
-convert('${INPUT}', '${OUTPUT}', '${OPTION}')
+options = "${OPTIONS}".split(",")
+remove = "${REMOVE}".split(",")
+convert('${INPUT}', '${OUTPUT}', options, remove)
 
 pdb.gimp_quit(1)
 EOF
