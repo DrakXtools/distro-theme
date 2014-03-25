@@ -34,9 +34,13 @@ def convert(input, output, options, remove):
         if layer.name in remove:
             img.remove_layer(layer)
 
-    layer = pdb.gimp_image_merge_visible_layers(img, 1)
     if "rgb" in options and img.base_type != RGB:
         pdb.gimp_image_convert_rgb(img)
+
+    if "index" in options and img.base_type != INDEX:
+        pdb.gimp_image_convert_indexed(img)
+
+    layer = pdb.gimp_image_merge_visible_layers(img, 1)
 
     pdb.gimp_file_save(img, layer, output, output)
     pdb.gimp_image_delete(img)
