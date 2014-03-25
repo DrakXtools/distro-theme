@@ -34,13 +34,24 @@ def convert(input, output, options, remove):
         if layer.name in remove:
             img.remove_layer(layer)
 
+    # we convert to RGB mode so that we can apply antialiasing to fonts,
+    # then we'll convert to indexed if requested only after merging the layers
+    # to get around lack of antialias support in index mode
+    if img.base_type != RGB:
+        pdb.gimp_image_convert_rgb(img)
+
+    pdb.gimp_context_push()
+    pdb.gimp_context_set_antialias(1)
+    pdb.gimp_context_pop()
+
+    layer = pdb.gimp_image_merge_visible_layers(img, 1)
+
+    # redundant, but whatever, for consistency or something, whatever.. :p
     if "rgb" in options and img.base_type != RGB:
         pdb.gimp_image_convert_rgb(img)
 
-    if "index" in options and img.base_type != INDEX:
-        pdb.gimp_image_convert_indexed(img)
-
-    layer = pdb.gimp_image_merge_visible_layers(img, 1)
+    if "indexed" in options and img.base_type != INDEXED:
+        pdb.gimp_image_convert_indexed(img, NO_DITHER, MAKE_PALETTE, 255, True, False, False)
 
     pdb.gimp_file_save(img, layer, output, output)
     pdb.gimp_image_delete(img)
