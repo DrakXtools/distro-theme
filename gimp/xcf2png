@@ -1,7 +1,6 @@
 #!/bin/sh
 
 while getopts "a:i:o:r:" opt; do
-    echo $opt: $OPTARG
     case $opt in
         a)
             if [ -z "$OPTIONS" ]; then
