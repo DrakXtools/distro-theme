@@ -19,5 +19,5 @@ pngs: $(BACKGROUNDS_PNG)
 clean:
 	rm -f $(BACKGROUNDS_PNG)
 
-install: $(BACKGROUNDS_PNG) Moondrake-tux-1920x1440.png Moondrake-1920x1440.png
-	install -p -m644 $< -D $(DESTDIR)/usr/share/mdk/backgrounds/$<
+install: all
+	@for i in Moondrake-tux-1920x1440.png Moondrake-1920x1440.png $(BACKGROUNDS_PNG); do install -p -m644 $$i -D $(DESTDIR)/usr/share/mdk/backgrounds/$$i; done
