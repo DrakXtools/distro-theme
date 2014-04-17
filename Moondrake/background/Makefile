@@ -1,4 +1,4 @@
-all: pngs
+all: pngs Moondrake-1920x1440.png Moondrake-tux-1920x1440.png
 
 BACKGROUNDS_GIMP=Moondrake-1024x768.xcf Moondrake-tux-1024x768.xcf
 
@@ -17,7 +17,7 @@ $(BACKGROUNDS_PNG): %.png: %.xcf
 pngs: $(BACKGROUNDS_PNG)
 
 clean:
-	rm -f $(BACKGROUNDS_PNG)
+	rm -f $(BACKGROUNDS_PNG) Moondrake-1920x1440.png Moondrake-tux-1920x1440.png
 
 install: all
 	@for i in Moondrake-tux-1920x1440.png Moondrake-1920x1440.png $(BACKGROUNDS_PNG); do install -p -m644 $$i -D $(DESTDIR)/usr/share/mdk/backgrounds/$$i; done
