@@ -20,7 +20,7 @@ FILES=$(THEMES) Makefile common gimp extra-backgrounds
 sharedir=/usr/share
 configdir=/etc
 
-# https://abf.rosalinux.ru/mdksoft/distro-theme
+# https://abf.rosalinux.ru/software/distro-theme
 SVNSOFT=svn+ssh://svn.mandriva.com/svn/soft/theme/mandriva-theme/
 SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 
