@@ -33,8 +33,6 @@ install:
 	install -m 644 extra-backgrounds/*.*g $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 	install -m644 */background/*.*g $(DESTDIR)$(prefix)$(sharedir)/mdk/backgrounds
 	install -m644 */icons/*.*g $(DESTDIR)$(prefix)$(sharedir)/icons
-	install -d $(DESTDIR)/boot/grub2/fonts/
-	install -m644 common/fonts/*.pf2 $(DESTDIR)/boot/grub2/fonts/
 	@for t in $(THEMES); do \
           set -x; set -e; \
 	  [ -d $$t/screensaver ] && install -m644 $$t/screensaver/*.??g $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver; \
