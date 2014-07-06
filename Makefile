@@ -98,6 +98,7 @@ ChangeLog:
 dist:
 	git archive --format=tar --prefix=$(NAME)-$(VERSION)/ HEAD | xz -2vec -T0 > $(NAME)-$(VERSION).tar.xz;
 	$(info $(NAME)-$(VERSION).tar.xz is ready)
+	git tag $(NAME)-$(VERSION)
 
 dist-old: cleandist export tar
 
