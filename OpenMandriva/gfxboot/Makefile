@@ -11,7 +11,9 @@ droid_sans_mono_regular_11.pf2: /usr/share/fonts/TTF/droid/DroidSansMono.ttf
 clean:
 	rm -f *pf2
 
-install: all
-	install -m644 background.png -D $(DESTDIR)/boot/grub2/themes/Moondrake/background.png
-	install -m644 dejavu_sans_bold_14.pf2 -D $(DESTDIR)/boot/grub2/themes/Moondrake/dejavu_sans_bold_14.pf2
-	install -m644 droid_sans_mono_regular_11.pf2 -D $(DESTDIR)/boot/grub2/themes/Moondrake/droid_sans_mono_regular_11.pf2
+install:
+	install -d $(DESTDIR)/boot/grub2/themes/OpenMandriva
+	install -m644 *.* $(DESTDIR)/boot/grub2/themes/OpenMandriva/
+	install -m644 dejavu_sans_bold_14.pf2 -D $(DESTDIR)/boot/grub2/themes/OpenMandriva/dejavu_sans_bold_14.pf2
+	install -m644 droid_sans_mono_regular_11.pf2 -D $(DESTDIR)/boot/grub2/themes/OpenMandriva/droid_sans_mono_regular_11.pf2
+
