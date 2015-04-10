@@ -1,6 +1,6 @@
 # Global properties
-title-text: ""
-title-font: "DejaVu Sans Bold 14"
+title-text: "OpenMandirva Lx"
+title-font: "DejaVu Sans Bold 15"
 title-color: "#FFFFFF"
 message-font: "DejaVu Sans Bold 14"
 message-color: "#000000"
