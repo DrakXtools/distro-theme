@@ -1,5 +1,5 @@
 # Global properties
-title-text: "OpenMandirva Lx"
+title-text: "OpenMandriva Lx"
 title-font: "DejaVu Sans Bold 15"
 title-color: "#FFFFFF"
 message-font: "DejaVu Sans Bold 14"
