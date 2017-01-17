@@ -9,7 +9,7 @@ fonts: dejavu_sans_bold_14.pf2 droid_sans_mono_regular_11.pf2 moonlight_bold_20.
 dejavu_sans_bold_14.pf2: /usr/share/fonts/TTF/dejavu/DejaVuSans-Bold.ttf
 	grub2-mkfont -v -a -s 14 -o $@ $< 
 
-droid_sans_mono_regular_11.pf2: /usr/share/fonts/google-droid/DroidSansMono.ttf
+droid_sans_mono_regular_11.pf2: /usr/share/fonts/TTF/dejavu/DejaVuSansMono.ttf
 	grub2-mkfont -v -a -s 11 -o $@ $<
 
 moonlight_bold_20.pf2: /usr/share/fonts/TTF/gliphmaker.com/Moonlight.ttf
