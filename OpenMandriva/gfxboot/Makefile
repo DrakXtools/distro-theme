@@ -5,7 +5,7 @@ fonts: dejavu_sans_bold_14.pf2 droid_sans_mono_regular_11.pf2
 dejavu_sans_bold_14.pf2: /usr/share/fonts/TTF/dejavu/DejaVuSans-Bold.ttf
 	grub2-mkfont -v -a -s 14 -o $@ $< 
 
-droid_sans_mono_regular_11.pf2: /usr/share/fonts/TTF/droid/DroidSansMono.ttf
+droid_sans_mono_regular_11.pf2: /usr/share/fonts/google-droid/DroidSansMono.ttf
 	grub2-mkfont -v -a -s 11 -o $@ $<
 
 clean:
