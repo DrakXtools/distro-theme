@@ -1,5 +1,5 @@
 
-FONTS=dejavu_sans_bold_14.pf2 droid_sans_mono_regular_11.pf2 moonlight_bold_20.pf2 moonlight_regular_20.pf2 moonlight_regular_50.pf2
+FONTS=dejavu_sans_bold_14.pf2 dejavu_sans_mono_11.pf2 droid_sans_mono_regular_11.pf2 moonlight_bold_20.pf2 moonlight_regular_20.pf2 moonlight_regular_50.pf2
 ALL=background.png $(FONTS)
 
 background.png: ../background/Moondrake-tux-1024x768.xcf
