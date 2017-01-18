@@ -2,6 +2,8 @@
 FONTS=dejavu_sans_bold_14.pf2 dejavu_sans_mono_11.pf2 droid_sans_mono_regular_11.pf2 moonlight_bold_20.pf2 moonlight_regular_20.pf2 moonlight_regular_50.pf2
 ALL=background.png $(FONTS)
 
+all: $(ALL)
+
 background.png: ../background/Moondrake-tux-1024x768.xcf
 	../../gimp/xcf2png -i $< -o $@ -a rgb
 	pngcrush -ow $@
@@ -23,9 +25,6 @@ moonlight_regular_20.pf2: /usr/share/fonts/TTF/gliphmaker.com/Moonlight.ttf
 
 moonlight_regular_50.pf2: /usr/share/fonts/TTF/gliphmaker.com/Moonlight.ttf
 	grub2-mkfont -v -a -s 50 -o $@ $<
-
-
-all: $(ALL)
 
 clean:
 	rm -f background.png *pf2
