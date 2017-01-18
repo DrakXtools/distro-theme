@@ -24,9 +24,9 @@ configdir=/etc
 SVNSOFT=svn+ssh://svn.mandriva.com/svn/soft/theme/mandriva-theme/
 SVNNAME=svn+ssh://svn.mandriva.com/svn/packages/cooker/mandriva-theme/current/
 
-all:
+all: subdirs
 
-install:
+install: subdirs
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/screensaver
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/mdk/backgrounds
 	mkdir -p $(DESTDIR)$(prefix)/$(sharedir)/icons
