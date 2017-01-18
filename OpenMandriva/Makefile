@@ -2,7 +2,7 @@ SUBDIRS=gfxboot
 
 .PHONY: subdirs $(SUBDIRS) clean
 
-subdirs: $(SUBDIRS)
+$(MAKECMDGOALS) subdirs: $(SUBDIRS)
 
 $(SUBDIRS):
 	@exec $(MAKE) -C $@ $(MAKECMDGOALS)

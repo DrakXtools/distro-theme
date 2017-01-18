@@ -1,6 +1,6 @@
 SUBDIRS=background gfxboot plymouth
 
-.PHONY: subdirs $(SUBDIRS)
+.PHONY: subdirs $(SUBDIRS) clean
 
 $(MAKECMDGOALS) subdirs: $(SUBDIRS)
 
